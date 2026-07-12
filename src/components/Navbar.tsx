@@ -1,3 +1,5 @@
+import logo from '../assets/logo.png';
+
 import { AnimatePresence, motion } from 'framer-motion';
 import { ChevronDown, Menu, Phone, X } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
@@ -79,14 +81,20 @@ export function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
           <Link to="/" className="flex items-center gap-2">
-            <div className="w-9 h-9 rounded-full bg-gradient-to-br from-brand-teal via-brand-green to-brand-gold flex items-center justify-center shadow-md">
-              <svg width="20" height="24" viewBox="0 0 24 30" fill="white">
-                <path d="M12 1C9 1 7 3 6.5 5C6 7 5 7.5 3.5 9C2 10.5 2.5 12.5 3.5 14C4.5 15.5 5 17.5 5.5 20C6 22.5 6.5 25 7.5 27C8.5 29 9.5 29 10.5 27C11.5 25 12 22 12.5 20C13 18 14 18 14.5 20C15 22 15.5 25 16.5 27C17.5 29 18.5 29 19.5 27C20.5 25 21 22.5 21.5 20C22 17.5 22.5 15.5 23.5 14C24.5 12.5 25 10.5 23.5 9C22 7.5 21 7 20.5 5C20 3 18 1 12 1Z" />
-              </svg>
+
+            {/* --- REPLACED LOGO ONLY --- */}
+            <div className="w-14 h-14 flex items-center justify-center">
+              <img
+                src={logo}
+                alt="Tazeen's Dental Care Logo"
+                className="w-full h-full object-contain"
+              />
             </div>
+            {/* -------------------------------- */}
+
             <span className="font-heading font-bold text-lg">
               <span className="text-brand-teal">TAZEEN'S</span>{' '}
-              <span className="text-neutral-700">DENTAL</span>
+              <span className="text-neutral-700">DENTAL CARE</span>
             </span>
           </Link>
 

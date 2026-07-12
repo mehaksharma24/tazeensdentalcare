@@ -2,10 +2,20 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { ArrowRight, Award, Baby, CheckCircle, ChevronLeft, ChevronRight, CreditCard, Heart, Sparkles, Star, Users } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
+import cd1 from '../assets/cd1.png';
+import ec1 from '../assets/ec1.png';
+import gbt1 from '../assets/gbt1.png';
+import home2 from '../assets/home2.png';
 import nazia1 from '../assets/nazia1.png';
+import pc1 from '../assets/pc1.png';
+import pc2 from '../assets/pc2.png';
 import tazeen1 from '../assets/tazeen1.jpg';
+import tw1 from '../assets/tw1.png';
+
+
 import { FloatingBubble, FloatingDenture, FloatingMirror, FloatingMolar, FloatingSparkle, FloatingTooth, FloatingToothbrush, WaveBanner } from '../components/FloatingElements';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
+
 export function Home() {
   return (
     <div className="overflow-hidden">
@@ -140,8 +150,9 @@ function PhilosophySection() {
         </motion.div>
 
         <motion.div initial={{ opacity: 0, x: 30 }} animate={isVisible ? { opacity: 1, x: 0 } : {}} transition={{ duration: 0.6, delay: 0.2 }} className="rounded-2xl overflow-hidden shadow-xl border-4 border-brand-teal/10">
-          {/* Replace with: /assets/images/home/philosophy.jpg */}
-          <img src="https://images.pexels.com/photos/3779709/pexels-photo-3779709.jpeg?auto=compress&cs=tinysrgb&w=700" alt="Prevention-first dental care" className="w-full h-[320px] object-cover" />
+         
+        <img src={home2} alt="Home" className="w-full h-[500px] object-cover" />
+
         </motion.div>
       </div>
     </section>
@@ -154,12 +165,12 @@ function ServicesOverview() {
   const { ref, isVisible } = useScrollAnimation();
 
   const services = [
-    { title: 'Guided Biofilm Therapy', desc: 'Advanced airflow cleaning — painless and thorough', image: 'https://images.pexels.com/photos/6627536/pexels-photo-6627536.jpeg?auto=compress&cs=tinysrgb&w=500', link: '/gbt', badge: 'Only in Milton' },
-    { title: 'Preventive Care', desc: 'Exams, cleanings, and early detection', image: 'https://images.pexels.com/photos/3845625/pexels-photo-3845625.jpeg?auto=compress&cs=tinysrgb&w=500', link: '/services' },
-    { title: 'Periodontal Care', desc: 'Deep cleaning and gum health management', image: 'https://images.pexels.com/photos/3779709/pexels-photo-3779709.jpeg?auto=compress&cs=tinysrgb&w=500', link: '/services' },
-    { title: 'Teeth Whitening', desc: 'Professional whitening for a brighter smile', image: 'https://images.pexels.com/photos/3762453/pexels-photo-3762453.jpeg?auto=compress&cs=tinysrgb&w=500', link: '/services' },
-    { title: "Children's Dental", desc: 'Gentle, kid-friendly preventive care', image: 'https://images.pexels.com/photos/3845653/pexels-photo-3845653.jpeg?auto=compress&cs=tinysrgb&w=500', link: '/services' },
-    { title: 'Emergency Care', desc: 'Same-day urgent dental treatment', image: 'https://images.pexels.com/photos/3952003/pexels-photo-3952003.jpeg?auto=compress&cs=tinysrgb&w=500', link: '/services' },
+    { title: 'Guided Biofilm Therapy', desc: 'Advanced airflow cleaning- painless and fast', image: gbt1, link: '/gbt', badge: 'Only in Milton' },
+    { title: 'Preventive Care', desc: 'Exams, cleanings, and early detection', image:pc1, link: '/services' },
+    { title: 'Periodontal Care', desc: 'Deep cleaning and gum health management', image: pc2, link:'/services' },
+    { title: 'Teeth Whitening', desc: 'Professional whitening for a brighter smile', image: tw1 , link: '/services' },
+    { title: "Children's Dental", desc: 'Gentle, kid-friendly preventive care', image: cd1, link: '/services' },
+    { title: 'Emergency Care', desc: 'Same-day urgent dental treatment', image: ec1, link: '/services' },
   ];
 
   return (
@@ -252,7 +263,7 @@ function MeetTeamSection() {
                 transition={{ duration: 0.5 }}
                 className="grid md:grid-cols-5"
               >
-                <div className="md:col-span-2 relative h-[300px] md:h-[360px]">
+                <div className="md:col-span-2 relative h-[350px] md:h-[360px]">
                   <img
                     src={team[activeSlide].image}
                     alt={team[activeSlide].name}

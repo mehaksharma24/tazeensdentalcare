@@ -1,17 +1,22 @@
-import { useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Link, useLocation } from 'react-router-dom';
 import { ArrowRight, CheckCircle } from 'lucide-react';
+import { useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import cd1 from '../assets/cd1.png';
+import ec1 from '../assets/ec1.png';
+import gbt1 from '../assets/gbt1.png';
+import is1 from '../assets/is1.png';
+import pc1 from '../assets/pc1.png';
+import tw1 from '../assets/tw1.png';
+import { FloatingBubble, FloatingDenture, FloatingMirror, FloatingMolar, FloatingSparkle, FloatingTooth, FloatingToothbrush } from '../components/FloatingElements';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
-import { FloatingTooth, FloatingToothbrush, FloatingMirror, FloatingMolar, FloatingDenture, FloatingBubble, FloatingSparkle } from '../components/FloatingElements';
-
 export const servicesList = [
   {
     id: 'gbt',
     title: 'Guided Biofilm Therapy (GBT)',
     desc: 'Advanced cleaning that removes plaque and bacteria using airflow technology.',
     points: ['More comfortable than traditional methods', 'Less abrasive on teeth and gums', 'Highly effective at reaching difficult areas', 'Ideal for sensitive patients'],
-    image: 'https://images.pexels.com/photos/6627536/pexels-photo-6627536.jpeg?auto=compress&cs=tinysrgb&w=600',
+    image: gbt1,
     badge: 'Only in Milton',
     link: '/gbt',
   },
@@ -20,42 +25,42 @@ export const servicesList = [
     title: 'Periodontal Care (Gum Treatment)',
     desc: 'Gum disease can develop silently and lead to serious issues if untreated.',
     points: ['Deep cleaning below the gumline', 'Removal of bacteria and plaque buildup', 'Ongoing maintenance to prevent recurrence', 'Early treatment can reverse damage'],
-    image: 'https://images.pexels.com/photos/3779709/pexels-photo-3779709.jpeg?auto=compress&cs=tinysrgb&w=600',
+    image: pc1,
   },
   {
     id: 'teeth-whitening',
     title: 'Teeth Whitening',
     desc: 'Professional whitening solutions that safely brighten your smile.',
     points: ['Faster and more noticeable results', 'Safe for enamel', 'Customized to your needs'],
-    image: 'https://images.pexels.com/photos/3762453/pexels-photo-3762453.jpeg?auto=compress&cs=tinysrgb&w=600',
+    image: tw1,
   },
   {
     id: 'childrens-dental',
     title: "Children's Dental Care",
     desc: 'We make dental visits positive and comfortable for children.',
     points: ['Gentle, kid-friendly care', 'Building healthy habits early', 'Preventing cavities and gum issues'],
-    image: 'https://images.pexels.com/photos/3845653/pexels-photo-3845653.jpeg?auto=compress&cs=tinysrgb&w=600',
+    image: cd1,
   },
   {
     id: 'restorative',
     title: 'Restorative Dentistry',
     desc: 'When damage occurs, we restore both function and appearance.',
     points: ['Tooth-colored fillings', 'Durable crowns', 'Bridges for missing teeth', 'Preserve natural tooth structure'],
-    image: 'https://images.pexels.com/photos/3845625/pexels-photo-3845625.jpeg?auto=compress&cs=tinysrgb&w=600',
+    image: pc1,
   },
   {
     id: 'invisalign',
     title: 'Invisalign / Clear Aligners',
     desc: 'A discreet way to straighten teeth without metal braces.',
     points: ['Nearly invisible', 'Removable for eating and cleaning', 'More comfortable than traditional braces'],
-    image: 'https://images.pexels.com/photos/3845810/pexels-photo-3845810.jpeg?auto=compress&cs=tinysrgb&w=600',
+    image: is1,
   },
   {
     id: 'emergency',
     title: 'Emergency Dental Care',
     desc: 'Dental emergencies require immediate attention. We provide same-day care.',
     points: ['Severe tooth pain', 'Broken or chipped teeth', 'Infections and swelling', 'Prompt treatment prevents complications'],
-    image: 'https://images.pexels.com/photos/3952003/pexels-photo-3952003.jpeg?auto=compress&cs=tinysrgb&w=600',
+    image: ec1,
   },
 ];
 
