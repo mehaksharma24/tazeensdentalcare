@@ -45,8 +45,8 @@ export function FloatingCTA() {
               className="flex items-center justify-between px-4 py-3 rounded-xl bg-brand-gold/5 border border-brand-gold/10 hover:bg-brand-gold/10 transition-colors"
             >
               <div>
-                <p className="font-semibold text-sm text-brand-gold-dark">Book & get 10% off</p>
-                <p className="text-xs text-neutral-500 mt-0.5">Online booking exclusive</p>
+                <p className="font-semibold text-sm text-brand-gold-dark">Free whitening offer</p>
+                <p className="text-xs text-neutral-500 mt-0.5">With a complete cleaning & exam</p>
               </div>
               <ArrowRight size={14} className="text-brand-gold-dark" />
             </Link>

@@ -17,7 +17,7 @@ export const servicesList = [
     desc: 'Advanced cleaning that removes plaque and bacteria using airflow technology.',
     points: ['More comfortable than traditional methods', 'Less abrasive on teeth and gums', 'Highly effective at reaching difficult areas', 'Ideal for sensitive patients'],
     image: gbt1,
-    badge: 'Only in Milton',
+    badge: 'Signature Service',
     link: '/gbt',
   },
   {
@@ -122,31 +122,32 @@ function ServicesList() {
             initial={{ opacity: 0, y: 25 }}
             animate={isVisible ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: i * 0.08, duration: 0.5 }}
-            className={`bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden scroll-mt-24 ${service.badge ? 'ring-2 ring-brand-teal/20' : ''}`}
+            className={`group bg-white rounded-2xl border border-neutral-100 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden scroll-mt-24 p-3 ${service.badge ? 'ring-2 ring-brand-teal/20' : ''}`}
           >
-            <div className={`grid md:grid-cols-5 ${i % 2 === 1 ? 'md:direction-rtl' : ''}`}>
-              <div className={`md:col-span-2 relative h-52 md:h-auto ${i % 2 === 1 ? 'md:order-2' : ''}`}>
+            <div className="grid md:grid-cols-5 gap-4 md:gap-6">
+              <div className={`md:col-span-2 relative h-52 md:h-auto min-h-[13rem] rounded-xl overflow-hidden ${i % 2 === 1 ? 'md:order-2' : ''}`}>
                 {/* Replace with: /assets/images/services/service-{i}.jpg */}
-                <img src={service.image} alt={service.title} className="w-full h-full object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent md:bg-gradient-to-r md:from-transparent md:to-black/5" />
+                <img src={service.image} alt={service.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                 {service.badge && (
                   <span className="absolute top-3 left-3 text-[10px] font-bold text-white bg-brand-teal/90 backdrop-blur-sm px-2.5 py-1 rounded-full">{service.badge}</span>
                 )}
               </div>
-              <div className={`md:col-span-3 p-5 md:p-6 ${i % 2 === 1 ? 'md:order-1' : ''}`}>
+              <div className={`md:col-span-3 p-4 md:py-6 md:pr-5 ${i % 2 === 1 ? 'md:order-1 md:pl-5' : ''}`}>
                 <h3 className="font-heading font-bold text-lg text-neutral-900">{service.title}</h3>
                 <p className="mt-1.5 text-neutral-600 text-sm">{service.desc}</p>
-                <ul className="mt-3 grid sm:grid-cols-2 gap-2">
+                <ul className="mt-4 grid sm:grid-cols-2 gap-2.5">
                   {service.points.map((point) => (
-                    <li key={point} className="flex items-center gap-2 text-sm text-neutral-700">
-                      <CheckCircle size={13} className="text-brand-green shrink-0" />
+                    <li key={point} className="flex items-start gap-2.5 text-sm text-neutral-700">
+                      <span className="w-5 h-5 rounded-full bg-brand-green/15 flex items-center justify-center shrink-0 mt-0.5">
+                        <CheckCircle size={12} className="text-brand-green" />
+                      </span>
                       {point}
                     </li>
                   ))}
                 </ul>
                 {service.link && (
-                  <Link to={service.link} className="inline-flex items-center gap-1.5 mt-4 text-sm font-medium text-brand-teal hover:text-brand-teal-dark transition-colors">
-                    Learn more <ArrowRight size={14} />
+                  <Link to={service.link} className="inline-flex items-center gap-1.5 mt-4 text-sm font-semibold text-brand-teal hover:text-brand-teal-dark transition-colors">
+                    Learn more <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
                   </Link>
                 )}
               </div>
@@ -161,12 +162,20 @@ function ServicesList() {
 function CTASection() {
   return (
     <section className="py-12 px-4">
-      <div className="max-w-3xl mx-auto rounded-2xl p-8 text-center" style={{ background: 'linear-gradient(135deg, rgba(0,165,181,0.1) 0%, rgba(107,191,74,0.08) 50%, rgba(232,168,56,0.08) 100%)' }}>
-        <h2 className="font-heading text-2xl font-bold text-neutral-900">Not Sure What You Need?</h2>
-        <p className="mt-2 text-neutral-600 text-sm">Book a comprehensive exam and let our team create a plan for your unique needs.</p>
-        <div className="mt-5 flex flex-wrap justify-center gap-3">
-          <Link to="/booking" className="btn-primary text-sm">Book an Exam <ArrowRight size={14} className="ml-2" /></Link>
-          <a href="tel:+19059998144" className="btn-secondary text-sm">Call 905-999-8144</a>
+      <div className="max-w-4xl mx-auto rounded-[2rem] p-8 md:p-10 text-center text-white relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #00A5B5 0%, #008A97 50%, #4A9E2F 100%)' }}>
+        <FloatingSparkle className="top-5 right-[18%]" delay={0.5} />
+        <div className="relative">
+          <div className="mx-auto mb-4 w-12 h-12 rounded-2xl bg-white/15 flex items-center justify-center">
+            <svg width="22" height="27" viewBox="0 0 24 30" fill="white">
+              <path d="M12 1C9 1 7 3 6.5 5C6 7 5 7.5 3.5 9C2 10.5 2.5 12.5 3.5 14C4.5 15.5 5 17.5 5.5 20C6 22.5 6.5 25 7.5 27C8.5 29 9.5 29 10.5 27C11.5 25 12 22 12.5 20C13 18 14 18 14.5 20C15 22 15.5 25 16.5 27C17.5 29 18.5 29 19.5 27C20.5 25 21 22.5 21.5 20C22 17.5 22.5 15.5 23.5 14C24.5 12.5 25 10.5 23.5 9C22 7.5 21 7 20.5 5C20 3 18 1 12 1Z" />
+            </svg>
+          </div>
+          <h2 className="font-heading text-2xl md:text-3xl font-bold">Not Sure What You Need?</h2>
+          <p className="mt-2 text-white/80 text-sm">Book a comprehensive exam and let our team create a plan for your unique needs.</p>
+          <div className="mt-6 flex flex-wrap justify-center gap-3">
+            <Link to="/booking" className="btn-accent text-sm">Book an Exam <ArrowRight size={14} className="ml-2" /></Link>
+            <a href="tel:+19059998144" className="inline-flex items-center gap-2 px-6 py-3 rounded-full border-2 border-white/30 text-white hover:bg-white/10 transition-all font-medium text-sm">Call 905-999-8144</a>
+          </div>
         </div>
       </div>
     </section>

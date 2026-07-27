@@ -17,7 +17,7 @@ export function Footer() {
               <span className="font-heading font-bold text-sm">Tazeen's Dental Care</span>
             </div>
             <p className="text-neutral-400 text-xs leading-relaxed">
-              Prevention-first dental care in Milton. We go the extra mile to make you smile.
+              Prevention-first dental care in Milton. We go the extra mile to make you smile. Welcoming new patients and refugee patients.
             </p>
           </div>
 

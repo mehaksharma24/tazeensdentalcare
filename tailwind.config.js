@@ -31,8 +31,8 @@ export default {
         },
       },
       fontFamily: {
-        heading: ['Poppins', 'sans-serif'],
-        body: ['Inter', 'sans-serif'],
+        heading: ['"Playfair Display"', 'serif'],
+        body: ['Jost', 'sans-serif'],
       },
       animation: {
         'float': 'float 6s ease-in-out infinite',

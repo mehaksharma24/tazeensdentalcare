@@ -45,7 +45,7 @@ function HeroBanner() {
 
       <div className="relative max-w-7xl mx-auto px-4 text-center">
         <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ type: 'spring', stiffness: 200, delay: 0.2 }}>
-        <div className="inline-flex items-center gap-2 px-10 py-4 rounded-full bg-brand-gold/15 text-brand-gold-dark text-xl font-bold mb-5 border border-brand-gold/20">   <Star size={14} className="fill-brand-gold-dark" /> Only GBT guided Clinic in Milton
+        <div className="inline-flex items-center gap-2 px-10 py-4 rounded-full bg-brand-gold/15 text-brand-gold-dark text-xl font-bold mb-5 border border-brand-gold/20">   <Star size={14} className="fill-brand-gold-dark" /> GBT Guided Clinic in Milton
           </div>
         </motion.div>
         <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.4 }} className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-neutral-900">
@@ -117,7 +117,10 @@ function AnimatedIntro() {
                 transition={{ delay: 0.8 + i * 0.08, duration: 0.4 }}
                 className="flex items-center gap-2.5 text-sm text-neutral-700"
               >
-                <CheckCircle size={15} className="text-brand-teal shrink-0" /> {item}
+                <span className="w-5 h-5 rounded-full bg-brand-teal/10 flex items-center justify-center shrink-0">
+                  <CheckCircle size={12} className="text-brand-teal" />
+                </span>
+                {item}
               </motion.li>
             ))}
           </motion.ul>
@@ -129,7 +132,7 @@ function AnimatedIntro() {
           transition={{ delay: 0.3, duration: 0.6 }}
           className="relative"
         >
-          <div className="rounded-2xl overflow-hidden shadow-2xl border-4 border-brand-teal/10 h-[380px]">
+          <div className="rounded-[2rem] overflow-hidden shadow-2xl border-[6px] border-white h-[380px]">
             {/* Replace with your own images in /assets/images/gbt/ */}
             <ImageSlideshow
               images={[
@@ -172,14 +175,14 @@ function StepsSection() {
   ];
 
   return (
-    <section ref={ref} className="section-padding" style={{ background: 'linear-gradient(135deg, rgba(0,165,181,0.06) 0%, rgba(107,191,74,0.05) 50%, rgba(232,168,56,0.04) 100%)' }}>
-      <div className="max-w-3xl mx-auto">
+    <section ref={ref} className="section-padding">
+      <div className="max-w-4xl mx-auto rounded-[2.5rem] overflow-hidden relative p-6 md:p-12" style={{ background: 'linear-gradient(135deg, #052E35 0%, #0A424B 60%, #0E3A2E 100%)' }}>
         <motion.div initial={{ opacity: 0, y: 30 }} animate={isVisible ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6 }} className="text-center mb-10">
-          <h2 className="font-heading text-3xl font-bold text-neutral-900">The <span className="text-brand-green">5-Step</span> Protocol</h2>
+          <h2 className="font-heading text-3xl font-bold text-white">The <span className="text-brand-green-light">5-Step</span> Protocol</h2>
         </motion.div>
 
         <div className="relative">
-          <div className="absolute left-5 top-0 bottom-0 w-0.5 bg-gradient-to-b from-brand-teal via-brand-green to-brand-gold opacity-20 hidden md:block" />
+          <div className="absolute left-5 top-0 bottom-0 w-0.5 bg-gradient-to-b from-brand-teal via-brand-green to-brand-gold opacity-30 hidden md:block" />
 
           <div className="space-y-4">
             {steps.map((item, i) => (
@@ -188,14 +191,14 @@ function StepsSection() {
                 initial={{ opacity: 0, x: -30 }}
                 animate={isVisible ? { opacity: 1, x: 0 } : {}}
                 transition={{ delay: 0.2 + i * 0.12, duration: 0.5 }}
-                className="bg-white rounded-xl p-5 shadow-md flex items-start gap-4 hover:-translate-y-0.5 transition-transform border border-brand-teal/5 md:ml-10"
+                className="bg-white/5 backdrop-blur-sm rounded-xl p-5 flex items-start gap-4 hover:bg-white/10 hover:-translate-y-0.5 transition-all border border-white/10 md:ml-10"
               >
-                <div className="shrink-0 w-11 h-11 rounded-xl flex items-center justify-center" style={{ background: `${item.color}15`, border: `2px solid ${item.color}30` }}>
-                  <span className="font-heading font-bold text-xs" style={{ color: item.color }}>{item.step}</span>
+                <div className="shrink-0 w-11 h-11 rounded-xl flex items-center justify-center" style={{ background: `${item.color}25`, border: `2px solid ${item.color}50` }}>
+                  <span className="font-heading font-bold text-xs" style={{ color: item.color === '#00A5B5' ? '#4DD9E5' : item.color === '#6BBF4A' ? '#8FD670' : '#F5C86A' }}>{item.step}</span>
                 </div>
                 <div>
-                  <h3 className="font-heading font-bold text-neutral-900 text-sm tracking-wide">{item.title}</h3>
-                  <p className="text-neutral-600 text-sm mt-1">{item.desc}</p>
+                  <h3 className="font-heading font-bold text-white text-sm tracking-wide">{item.title}</h3>
+                  <p className="text-neutral-300 text-sm mt-1">{item.desc}</p>
                 </div>
               </motion.div>
             ))}
@@ -229,7 +232,7 @@ function BenefitsSection() {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={isVisible ? { opacity: 1, scale: 1 } : {}}
               transition={{ delay: 0.1 + i * 0.1, duration: 0.4, type: 'spring' }}
-              className="card text-center hover:-translate-y-1"
+              className="card border border-neutral-100 text-center hover:-translate-y-1"
             >
               <motion.div
                 animate={isVisible ? { rotate: [0, 10, -10, 0] } : {}}
@@ -259,7 +262,7 @@ function CTASection() {
         ))}
         <div className="relative">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/20 text-sm font-medium mb-3">
-            <Award size={14} /> Exclusive to Milton
+            <Award size={14} /> Advanced GBT Technology
           </div>
           <h2 className="font-heading text-2xl md:text-3xl font-bold">Experience the Future of Dental Cleaning</h2>
           <p className="mt-3 text-white/80 text-sm">Book your GBT appointment today and feel the difference.</p>

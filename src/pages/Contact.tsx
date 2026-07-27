@@ -57,9 +57,9 @@ function ContactInfo() {
             { icon: Clock, title: 'Mon-Thu', line: '10:00 AM - 7:00 PM', color: 'bg-brand-gold/10', text: 'text-brand-gold-dark' },
             { icon: Clock, title: 'Fri-Sat', line: '10:00 AM - 4:00 PM', color: 'bg-brand-teal/10', text: 'text-brand-teal' },
           ].map((item, i) => (
-            <motion.div key={item.title} initial={{ opacity: 0, y: 20 }} animate={isVisible ? { opacity: 1, y: 0 } : {}} transition={{ delay: i * 0.1, duration: 0.5 }} className="card text-center hover:-translate-y-1">
-              <div className={`w-10 h-10 rounded-lg ${item.color} flex items-center justify-center mx-auto mb-3`}>
-                <item.icon size={18} className={item.text} />
+            <motion.div key={item.title} initial={{ opacity: 0, y: 20 }} animate={isVisible ? { opacity: 1, y: 0 } : {}} transition={{ delay: i * 0.1, duration: 0.5 }} className="card border border-neutral-100 text-center hover:-translate-y-1">
+              <div className={`w-11 h-11 rounded-xl ${item.color} flex items-center justify-center mx-auto mb-3`}>
+                <item.icon size={19} className={item.text} />
               </div>
               <h3 className="font-heading font-semibold text-sm text-neutral-800">{item.title}</h3>
               <p className="mt-1 text-xs text-neutral-600 whitespace-pre-line">
@@ -74,8 +74,11 @@ function ContactInfo() {
             <h3 className="font-heading font-semibold text-neutral-900 mb-3">Why Visit Us?</h3>
             <div className="grid sm:grid-cols-2 gap-2">
               {['Convenient Milton location', 'Plenty of free parking', 'Calm and welcoming environment', 'Easy appointment scheduling'].map((item) => (
-                <div key={item} className="flex items-center gap-2 text-sm text-neutral-700">
-                  <CheckCircle size={14} className="text-brand-green shrink-0" /> {item}
+                <div key={item} className="flex items-center gap-2.5 text-sm text-neutral-700">
+                  <span className="w-5 h-5 rounded-full bg-brand-green/15 flex items-center justify-center shrink-0">
+                    <CheckCircle size={12} className="text-brand-green" />
+                  </span>
+                  {item}
                 </div>
               ))}
             </div>
@@ -95,7 +98,7 @@ function MapSection() {
 
   return (
     <section ref={ref} className="pb-16 px-4">
-      <motion.div initial={{ opacity: 0, y: 30 }} animate={isVisible ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6 }} className="max-w-7xl mx-auto rounded-2xl overflow-hidden shadow-xl border-4 border-brand-teal/10">
+      <motion.div initial={{ opacity: 0, y: 30 }} animate={isVisible ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6 }} className="max-w-7xl mx-auto rounded-[2rem] overflow-hidden shadow-xl border-[6px] border-white">
         <iframe
           title="Tazeen's Dental Care"
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2898.5!2d-79.88!3d43.52!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2s400+Bronte+Street+South+Milton+ON!5e0!3m2!1sen!2sca!4v1"

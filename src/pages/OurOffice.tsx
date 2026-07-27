@@ -1,7 +1,7 @@
-import { motion } from 'framer-motion';
-import { CheckCircle } from 'lucide-react';
+import { AnimatePresence, motion } from 'framer-motion';
+import { CheckCircle, ChevronLeft, ChevronRight, Expand, X } from 'lucide-react';
+import { useCallback, useEffect, useState } from 'react';
 import { FloatingBubble, FloatingDenture, FloatingMirror, FloatingMolar, FloatingSparkle, FloatingTooth, FloatingToothbrush } from '../components/FloatingElements';
-import { ImageSlideshow } from '../components/ImageSlideshow';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 // Updated images from src/assets
@@ -54,16 +54,120 @@ function HeroBanner() {
 
 function GallerySlider() {
   const { ref, isVisible } = useScrollAnimation();
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+
+  const showPrev = useCallback(() => {
+    setLightboxIndex((prev) => (prev === null ? prev : (prev + galleryImages.length - 1) % galleryImages.length));
+  }, []);
+  const showNext = useCallback(() => {
+    setLightboxIndex((prev) => (prev === null ? prev : (prev + 1) % galleryImages.length));
+  }, []);
+
+  useEffect(() => {
+    if (lightboxIndex === null) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setLightboxIndex(null);
+      if (e.key === 'ArrowLeft') showPrev();
+      if (e.key === 'ArrowRight') showNext();
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [lightboxIndex, showPrev, showNext]);
 
   return (
     <section ref={ref} className="section-padding bg-gradient-to-b from-white to-brand-teal/5">
       <div className="max-w-5xl mx-auto">
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={isVisible ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6 }}>
-          <div className="rounded-2xl overflow-hidden shadow-2xl border-4 border-brand-teal/10 h-[300px] md:h-[420px]">
-            <ImageSlideshow images={galleryImages} alt="Our Office" interval={3500} className="h-full" />
-          </div>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isVisible ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6 }}
+          className="grid grid-cols-2 md:grid-cols-4 auto-rows-[150px] md:auto-rows-[175px] gap-3"
+        >
+          {galleryImages.map((img, i) => (
+            <motion.button
+              key={i}
+              type="button"
+              onClick={() => setLightboxIndex(i)}
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={isVisible ? { opacity: 1, scale: 1 } : {}}
+              transition={{ delay: i * 0.07, duration: 0.4 }}
+              className={`group relative overflow-hidden rounded-2xl shadow-md focus:outline-none focus:ring-2 focus:ring-brand-teal ${
+                i === 0 ? 'col-span-2 row-span-2' : ''
+              } ${i === 5 ? 'md:col-span-2' : ''} ${i === 6 ? 'col-span-2 md:col-span-2' : ''}`}
+            >
+              <img
+                src={img}
+                alt={`Our Office ${i + 1}`}
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-neutral-900/0 group-hover:bg-neutral-900/30 transition-colors duration-300 flex items-center justify-center">
+                <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 w-11 h-11 rounded-full bg-white/90 flex items-center justify-center text-brand-teal shadow-lg">
+                  <Expand size={18} />
+                </span>
+              </div>
+            </motion.button>
+          ))}
         </motion.div>
       </div>
+
+      <AnimatePresence>
+        {lightboxIndex !== null && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 bg-black/90 flex flex-col items-center justify-center p-4"
+            onClick={() => setLightboxIndex(null)}
+          >
+            <button
+              className="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors"
+              onClick={() => setLightboxIndex(null)}
+            >
+              <X size={20} />
+            </button>
+
+            <button
+              className="absolute left-3 md:left-8 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors"
+              onClick={(e) => { e.stopPropagation(); showPrev(); }}
+            >
+              <ChevronLeft size={22} />
+            </button>
+            <button
+              className="absolute right-3 md:right-8 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors"
+              onClick={(e) => { e.stopPropagation(); showNext(); }}
+            >
+              <ChevronRight size={22} />
+            </button>
+
+            <motion.img
+              key={lightboxIndex}
+              initial={{ opacity: 0, scale: 0.96 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.25 }}
+              src={galleryImages[lightboxIndex]}
+              alt={`Our Office ${lightboxIndex + 1}`}
+              className="max-w-full max-h-[70vh] rounded-xl object-contain shadow-2xl"
+              onClick={(e) => e.stopPropagation()}
+            />
+
+            <p className="mt-4 text-white/70 text-sm">{lightboxIndex + 1} / {galleryImages.length}</p>
+
+            <div className="mt-3 flex gap-2 overflow-x-auto max-w-full pb-1" onClick={(e) => e.stopPropagation()}>
+              {galleryImages.map((img, i) => (
+                <button
+                  key={i}
+                  onClick={() => setLightboxIndex(i)}
+                  className={`shrink-0 w-16 h-12 rounded-lg overflow-hidden border-2 transition-all ${
+                    i === lightboxIndex ? 'border-brand-teal opacity-100' : 'border-transparent opacity-50 hover:opacity-80'
+                  }`}
+                >
+                  <img src={img} alt="" className="w-full h-full object-cover" />
+                </button>
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }
@@ -104,19 +208,19 @@ function PreventionSection() {
   const { ref, isVisible } = useScrollAnimation();
 
   return (
-    <section ref={ref} className="section-padding" style={{ background: 'linear-gradient(135deg, rgba(107,191,74,0.08) 0%, rgba(0,165,181,0.06) 50%, rgba(232,168,56,0.06) 100%)' }}>
-      <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-10 items-center">
+    <section ref={ref} className="section-padding">
+      <div className="max-w-6xl mx-auto rounded-[2.5rem] overflow-hidden p-6 md:p-12 grid lg:grid-cols-2 gap-10 items-center" style={{ background: 'linear-gradient(135deg, #052E35 0%, #0A424B 60%, #0E3A2E 100%)' }}>
 
         {/* Updated image to cl6 */}
-        <motion.div initial={{ opacity: 0, x: -30 }} animate={isVisible ? { opacity: 1, x: 0 } : {}} transition={{ duration: 0.6 }} className="rounded-2xl overflow-hidden shadow-xl border-4 border-brand-green/10">
+        <motion.div initial={{ opacity: 0, x: -30 }} animate={isVisible ? { opacity: 1, x: 0 } : {}} transition={{ duration: 0.6 }} className="rounded-[2rem] overflow-hidden shadow-2xl border-4 border-white/20">
           <img src={cl6} alt="Built on prevention" className="w-full h-[320px] object-cover" />
         </motion.div>
 
         <motion.div initial={{ opacity: 0, x: 30 }} animate={isVisible ? { opacity: 1, x: 0 } : {}} transition={{ duration: 0.6, delay: 0.2 }}>
-          <h2 className="font-heading text-3xl font-bold text-neutral-900">
-            Built on <span className="text-brand-green">Prevention</span>, Not Just Procedures
+          <h2 className="font-heading text-3xl font-bold text-white">
+            Built on <span className="text-brand-green-light">Prevention</span>, Not Just Procedures
           </h2>
-          <p className="mt-4 text-neutral-600 text-sm leading-relaxed">
+          <p className="mt-4 text-neutral-300 text-sm leading-relaxed">
             In many traditional dental offices, hygiene appointments are shorter and treated as routine. At Tazeen's, hygiene is the foundation of everything we do.
           </p>
           <ul className="mt-5 space-y-3">
@@ -126,9 +230,11 @@ function PreventionSection() {
               'We prioritize gum health, critical for overall oral health',
               'We provide personalized education tailored to your habits',
             ].map((item, i) => (
-              <motion.li key={i} initial={{ opacity: 0, x: -15 }} animate={isVisible ? { opacity: 1, x: 0 } : {}} transition={{ delay: 0.3 + i * 0.08, duration: 0.4 }} className="flex items-start gap-2.5">
-                <CheckCircle size={16} className="text-brand-green shrink-0 mt-0.5" />
-                <span className="text-neutral-700 text-sm">{item}</span>
+              <motion.li key={i} initial={{ opacity: 0, x: -15 }} animate={isVisible ? { opacity: 1, x: 0 } : {}} transition={{ delay: 0.3 + i * 0.08, duration: 0.4 }} className="flex items-start gap-3">
+                <span className="w-6 h-6 rounded-full bg-brand-green/25 flex items-center justify-center shrink-0 mt-0.5">
+                  <CheckCircle size={14} className="text-brand-green-light" />
+                </span>
+                <span className="text-neutral-200 text-sm">{item}</span>
               </motion.li>
             ))}
           </ul>

@@ -2,7 +2,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { ArrowRight, Calculator, CheckCircle, ChevronDown, FileText, Heart, Phone, Shield, Stethoscope } from 'lucide-react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FloatingBubble, FloatingDenture, FloatingMirror, FloatingMolar, FloatingSparkle, FloatingTooth, FloatingToothbrush } from '../components/FloatingElements';
+import { FloatingMolar, FloatingSparkle, FloatingTooth } from '../components/FloatingElements';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 export function CDCP() {
@@ -34,31 +34,33 @@ function CanadaFlag({ className = '' }: { className?: string }) {
 
 function HeroBanner() {
   return (
-    <section className="relative pt-28 pb-14 md:pt-36 md:pb-20 overflow-hidden" style={{ background: 'linear-gradient(135deg, rgba(255,0,0,0.04) 0%, rgba(255,255,255,1) 30%, rgba(255,0,0,0.04) 100%)' }}>
-      <FloatingTooth className="top-28 left-[6%]" delay={0} size={26} />
-      <FloatingTooth className="bottom-12 right-[10%]" delay={2} size={22} />
-      <FloatingToothbrush className="top-40 left-[25%]" delay={0.8} size={26} />
-      <FloatingMirror className="bottom-8 right-[25%]" delay={1.5} size={22} />
-      <FloatingMolar className="top-36 right-[40%]" delay={1.2} size={18} />
-      <FloatingDenture className="bottom-16 left-[15%]" delay={3} size={24} />
-      <FloatingBubble className="top-32 right-[15%]" size={40} color="#FF0000" delay={0} />
-      <FloatingSparkle className="top-48 left-[20%]" delay={1} />
-      <FloatingSparkle className="bottom-6 right-[35%]" delay={2.5} />
-      <FloatingBubble className="bottom-10 left-[30%]" size={25} color="#6BBF4A" delay={2} />
-
-      <div className="relative max-w-7xl mx-auto px-4 text-center">
-        <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-          <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ type: 'spring', stiffness: 300, delay: 0.3 }} className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-red-50 border border-red-100 text-sm font-medium mb-6">
-            <CanadaFlag />
-            <span className="text-red-700">Canadian Dental Care Plan</span>
+    <section className="relative pt-16 overflow-hidden">
+      <div className="relative overflow-hidden" style={{ background: 'linear-gradient(100deg, #FFF6EC 0%, #FFD9C4 40%, #F58E75 100%)' }}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-14 md:pt-20 grid md:grid-cols-2 gap-8 items-end">
+          <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }} className="pb-10 md:pb-16">
+            <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ type: 'spring', stiffness: 300, delay: 0.3 }} className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-white/70 border border-white text-sm font-medium mb-6">
+              <CanadaFlag />
+              <span className="text-red-700">Welcoming New & Refugee Patients</span>
+            </motion.div>
+            <h1 className="font-heading text-5xl md:text-6xl lg:text-7xl font-bold text-neutral-900 leading-[1.02]">
+              Canadian<br />Dental<br />Care Plan
+            </h1>
+            <p className="mt-4 font-semibold text-neutral-900 tracking-wide">
+              Accessible. Affordable. Essential.
+            </p>
+            <p className="mt-4 text-neutral-800/80 max-w-md text-sm leading-relaxed">
+              No private insurance? No employer benefits? The Canadian Dental Care Plan helps you access essential dental treatment — even if you're not employed.
+            </p>
           </motion.div>
-          <h1 className="font-heading text-4xl md:text-5xl font-bold text-neutral-900">
-            Affordable Dental Care <br className="hidden md:block" />Through <span className="text-red-600">CDCP</span>
-          </h1>
-          <p className="mt-4 text-neutral-600 max-w-xl mx-auto">
-            No private insurance? No employer benefits? The Canadian Dental Care Plan helps you access essential dental treatment — even if you're not employed.
-          </p>
-        </motion.div>
+
+          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.2 }} className="hidden md:flex justify-center items-end">
+            <img
+              src="https://images.pexels.com/photos/5622280/pexels-photo-5622280.jpeg?auto=compress&cs=tinysrgb&w=900"
+              alt="Smiling patient with dental care provider"
+              className="w-[420px] h-[340px] object-cover rounded-t-full shadow-2xl border-8 border-white/40 border-b-0"
+            />
+          </motion.div>
+        </div>
       </div>
     </section>
   );

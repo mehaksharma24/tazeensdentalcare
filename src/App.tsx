@@ -33,7 +33,7 @@ function App() {
       </AnimatePresence>
 
       {!showSplash && (
-        <div className="min-h-screen bg-white">
+        <div className="min-h-screen">
           <ScrollToTop />
           <Navbar />
           <main>

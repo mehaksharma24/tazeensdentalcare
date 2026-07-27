@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, Tag, Sparkles } from 'lucide-react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import { FloatingTooth, FloatingToothbrush, FloatingMolar, FloatingSparkle, FloatingBubble } from '../components/FloatingElements';
+import tw1 from '../assets/tw1.png';
 
 export function Promotions() {
   return (
@@ -54,11 +55,10 @@ function PromoCard() {
           className="bg-white rounded-3xl shadow-xl overflow-hidden border border-brand-gold/10"
         >
           <div className="grid md:grid-cols-2">
-            {/* Replace with your own promo image: /assets/images/promotions/promo-1.jpg */}
             <div className="relative h-64 md:h-auto">
               <img
-                src="https://images.pexels.com/photos/3845810/pexels-photo-3845810.jpeg?auto=compress&cs=tinysrgb&w=600"
-                alt="Current Promotion"
+                src={tw1}
+                alt="Teeth whitening offer"
                 className="w-full h-full object-cover"
               />
               <div className="absolute top-4 left-4 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-brand-gold text-white text-xs font-bold shadow-lg">
@@ -66,15 +66,14 @@ function PromoCard() {
               </div>
             </div>
             <div className="p-6 md:p-8 flex flex-col justify-center">
-              {/* Replace this headline and text */}
               <h2 className="font-heading text-2xl md:text-3xl font-bold text-neutral-900">
-                Book Online & Get <span className="text-brand-gold-dark">10% Off</span>
+                Ask Us About Our <span className="text-brand-gold-dark">Whitening Offer</span>
               </h2>
               <p className="mt-3 text-neutral-600 text-sm leading-relaxed">
-                New patients who book their first appointment through our website receive 10% off their initial visit. Experience prevention-first dental care at a special introductory price.
+                Complete a full cleaning and exam, and receive <span className="font-semibold text-neutral-800">FREE teeth whitening</span> — a brighter, healthier smile in one visit. Welcoming new patients and refugee patients.
               </p>
               <p className="mt-3 text-neutral-500 text-xs italic">
-                Valid for new patients only. Cannot be combined with other offers. Subject to change.
+                Limited time offer. Cannot be combined with other offers. Ask our team for details.
               </p>
               <div className="mt-6 flex flex-wrap gap-3">
                 <Link to="/booking" className="btn-primary text-sm">

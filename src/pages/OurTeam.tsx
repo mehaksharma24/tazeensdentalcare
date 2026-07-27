@@ -113,7 +113,7 @@ function TazeenSection() {
           transition={{ duration: 0.6 }}
           className="relative"
         >
-          <div className="rounded-3xl overflow-hidden shadow-xl border-4 border-brand-teal/10 h-[400px]">
+          <div className="rounded-[2rem] overflow-hidden shadow-xl border-[6px] border-white h-[400px]">
             <ImageSlideshow images={tazeenImages} alt="Tazeen" interval={4000} className="h-full" />
           </div>
           <motion.div
@@ -230,7 +230,7 @@ function DrNaziaSection() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="order-1 lg:order-2 relative"
         >
-          <div className="rounded-3xl overflow-hidden shadow-xl border-4 border-brand-green/10 h-[400px]">
+          <div className="rounded-[2rem] overflow-hidden shadow-xl border-[6px] border-white h-[400px]">
             <ImageSlideshow images={naziaImages} alt="Dr. Nazia" interval={4500} className="h-full" />
           </div>
         </motion.div>
@@ -256,21 +256,22 @@ function GallerySection({ onOpen }: { onOpen: (src: string) => void }) {
           </h2>
         </motion.div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+        <div className="grid grid-cols-2 md:grid-cols-4 auto-rows-[150px] md:auto-rows-[170px] gap-3">
           {galleryImages.map((img, i) => (
             <motion.div
               key={img.src}
               initial={{ opacity: 0, scale: 0.95 }}
               animate={isVisible ? { opacity: 1, scale: 1 } : {}}
               transition={{ delay: i * 0.08, duration: 0.4 }}
-              className="group cursor-pointer rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all"
+              className={`group relative cursor-pointer rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all ${i === 0 ? 'col-span-2 row-span-2' : ''} ${i === 5 ? 'col-span-2 md:col-span-4' : ''}`}
               onClick={() => onOpen(img.src)}
             >
               <img
                 src={img.src}
                 alt={img.alt}
-                className="w-full h-36 md:h-44 object-cover group-hover:scale-110 transition-transform duration-500"
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
               />
+              <div className="absolute inset-0 bg-neutral-900/0 group-hover:bg-neutral-900/25 transition-colors duration-300" />
             </motion.div>
           ))}
         </div>

@@ -41,22 +41,22 @@ export function WelcomePopup({ isOpen, onClose }: WelcomePopupProps) {
                   <Sparkles size={28} className="text-white" />
                 </motion.div>
                 <h2 className="font-heading text-2xl font-bold">Welcome!</h2>
-                <p className="mt-2 text-white/90 text-sm">Book through our website and get</p>
-                <p className="font-heading text-4xl font-bold mt-1">10% OFF</p>
-                <p className="text-white/80 text-xs mt-1">your first appointment</p>
+                <p className="mt-2 text-white/90 text-sm">Complete a cleaning & exam and get</p>
+                <p className="font-heading text-4xl font-bold mt-1">FREE WHITENING</p>
+                <p className="text-white/80 text-xs mt-1">ask us about our whitening offer</p>
               </div>
             </div>
 
             <div className="p-6 text-center">
               <p className="text-neutral-600 text-sm mb-5">
-                New patients who book online receive an exclusive discount on their initial visit. Don't miss out!
+                Welcoming new patients and refugee patients. Book a complete cleaning and exam and receive free teeth whitening!
               </p>
               <Link
                 to="/booking"
                 onClick={onClose}
                 className="btn-primary w-full text-sm justify-center"
               >
-                Book Now & Save 10% <ArrowRight size={14} className="ml-2" />
+                Book Now & Get Free Whitening <ArrowRight size={14} className="ml-2" />
               </Link>
             </div>
           </motion.div>

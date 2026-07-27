@@ -114,7 +114,7 @@ function TazeenSection() {
           <p className="text-brand-teal font-medium mt-1">Registered Dental Hygienist</p>
           <div className="mt-4 space-y-3 text-neutral-600 text-sm leading-relaxed">
             <p>After years in dental practices, Tazeen saw patients weren't getting the proactive care they deserved. She opened this clinic to put prevention first.</p>
-            <p>As Milton's only GBT-certified clinician, she brings gentle, effective cleaning technology. Every appointment starts with education.</p>
+            <p>As a GBT-certified clinician in Milton, she brings gentle, effective cleaning technology. Every appointment starts with education.</p>
           </div>
           <div className="mt-5 flex flex-wrap gap-2">
             <span className="px-3 py-1.5 rounded-lg bg-brand-green/10 text-brand-green-dark text-xs font-medium flex items-center gap-1.5"><Heart size={12} /> Prevention Focused</span>
