@@ -20,6 +20,9 @@ const galleryImages = [
   { src: '/src/assets/tm4.png', alt: 'Team Member 4' },
   { src: '/src/assets/tm5.png', alt: 'Team Member 5' },
   { src: '/src/assets/tm6.png', alt: 'Team Member 6' },
+  { src: '/src/assets/tm7.png', alt: 'Team Member 7' },
+  { src: '/src/assets/tm8.png', alt: 'Team Member 8' },
+  { src: '/src/assets/tm9.png', alt: 'Team Member 9' },
 ];
 
 export function OurTeam() {
@@ -113,7 +116,7 @@ function TazeenSection() {
           transition={{ duration: 0.6 }}
           className="relative"
         >
-          <div className="rounded-[2rem] overflow-hidden shadow-xl border-[6px] border-white h-[400px]">
+          <div className="rounded-[2rem] overflow-hidden shadow-xl border-[6px] border-white h-[600px]">
             <ImageSlideshow images={tazeenImages} alt="Tazeen" interval={4000} className="h-full" />
           </div>
           <motion.div
@@ -176,7 +179,7 @@ function DrNaziaSection() {
   const naziaImages = [
     '/src/assets/nazia1.png',
     '/src/assets/pc1.png',
-    'https://images.pexels.com/photos/3779709/pexels-photo-3779709.jpeg?auto=compress&cs=tinysrgb&w=700',
+    '/src/assets/nazia2.png',
   ];
 
   return (
@@ -230,7 +233,7 @@ function DrNaziaSection() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="order-1 lg:order-2 relative"
         >
-          <div className="rounded-[2rem] overflow-hidden shadow-xl border-[6px] border-white h-[400px]">
+          <div className="rounded-[2rem] overflow-hidden shadow-xl border-[6px] border-white h-[600px]">
             <ImageSlideshow images={naziaImages} alt="Dr. Nazia" interval={4500} className="h-full" />
           </div>
         </motion.div>
@@ -243,38 +246,42 @@ function GallerySection({ onOpen }: { onOpen: (src: string) => void }) {
   const { ref, isVisible } = useScrollAnimation(0.05);
 
   return (
-    <section ref={ref} className="section-padding bg-gradient-to-b from-brand-gold/5 to-brand-teal/5">
+    <section ref={ref} className="section-padding bg-brand-teal/5">
       <div className="max-w-7xl mx-auto">
+
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isVisible ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-8"
+          className="text-center mb-10"
         >
-          <h2 className="font-heading text-2xl md:text-3xl font-bold text-neutral-900">
-            <span className="text-brand-gold-dark">Gallery</span>
+          <h2 className="font-heading text-3xl font-bold text-brand-teal">
+            Tazeen's Dental Care Team
           </h2>
         </motion.div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 auto-rows-[150px] md:auto-rows-[170px] gap-3">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
           {galleryImages.map((img, i) => (
             <motion.div
               key={img.src}
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={isVisible ? { opacity: 1, scale: 1 } : {}}
-              transition={{ delay: i * 0.08, duration: 0.4 }}
-              className={`group relative cursor-pointer rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all ${i === 0 ? 'col-span-2 row-span-2' : ''} ${i === 5 ? 'col-span-2 md:col-span-4' : ''}`}
+              initial={{ opacity: 0, rotate: -2 }}
+              animate={isVisible ? { opacity: 1, rotate: 0 } : {}}
+              transition={{ delay: i * 0.05, duration: 0.4 }}
+              className="relative rounded-2xl overflow-hidden shadow-xl group cursor-pointer 
+                         h-[250px] md:h-[350px]"
               onClick={() => onOpen(img.src)}
             >
               <img
                 src={img.src}
                 alt={img.alt}
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
               />
-              <div className="absolute inset-0 bg-neutral-900/0 group-hover:bg-neutral-900/25 transition-colors duration-300" />
+
+              <div className="absolute inset-0 bg-brand-teal/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </motion.div>
           ))}
         </div>
+
       </div>
     </section>
   );

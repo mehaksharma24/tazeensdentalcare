@@ -16,6 +16,15 @@ export function FloatingTooth({ className = '', delay = 0, size = 28 }: { classN
     </motion.div>
   );
 }
+export const FloatingStar = () => {
+  return (
+    <img
+      src="/path/to/star.png"
+      className="floating-element"
+      alt="star"
+    />
+  );
+};
 
 export function FloatingToothbrush({ className = '', delay = 0, size = 28 }: { className?: string; delay?: number; size?: number }) {
   return (

@@ -1,5 +1,5 @@
+import { Clock, Facebook, Instagram, Mail, MapPin, Phone } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { MapPin, Phone, Mail, Clock, Facebook, Instagram } from 'lucide-react';
 
 export function Footer() {
   return (
@@ -14,15 +14,15 @@ export function Footer() {
                   <path d="M12 1C9 1 7 3 6.5 5C6 7 5 7.5 3.5 9C2 10.5 2.5 12.5 3.5 14C4.5 15.5 5 17.5 5.5 20C6 22.5 6.5 25 7.5 27C8.5 29 9.5 29 10.5 27C11.5 25 12 22 12.5 20C13 18 14 18 14.5 20C15 22 15.5 25 16.5 27C17.5 29 18.5 29 19.5 27C20.5 25 21 22.5 21.5 20C22 17.5 22.5 15.5 23.5 14C24.5 12.5 25 10.5 23.5 9C22 7.5 21 7 20.5 5C20 3 18 1 12 1Z" />
                 </svg>
               </div>
-              <span className="font-heading font-bold text-sm">Tazeen's Dental Care</span>
+              <span className="font-heading font-bold text-xl">Tazeen's Dental Care</span>
             </div>
-            <p className="text-neutral-400 text-xs leading-relaxed">
+            <p className="text-neutral-400 text-xl leading-relaxed">
               Prevention-first dental care in Milton. We go the extra mile to make you smile. Welcoming new patients and refugee patients.
             </p>
           </div>
 
           <div>
-            <h3 className="font-heading font-semibold text-sm mb-4">Quick Links</h3>
+            <h3 className="font-heading font-semibold text-xl mb-4">Quick Links</h3>
             <ul className="space-y-2">
               {[
                 { to: '/about/office', label: 'Our Office' },
@@ -34,7 +34,7 @@ export function Footer() {
                 { to: '/booking', label: 'Book Appointment' },
               ].map((link) => (
                 <li key={link.to}>
-                  <Link to={link.to} className="text-neutral-400 hover:text-brand-teal transition-colors text-xs">
+                  <Link to={link.to} className="text-neutral-400 hover:text-brand-teal transition-colors text-">
                     {link.label}
                   </Link>
                 </li>
@@ -43,17 +43,17 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="font-heading font-semibold text-sm mb-4">Contact</h3>
+            <h3 className="font-heading font-semibold text-2xl mb-4">Contact</h3>
             <ul className="space-y-2.5">
-              <li className="flex items-start gap-2.5 text-neutral-400 text-xs">
+              <li className="flex items-start gap-2.5 text-neutral-400 text-xl">
                 <MapPin size={14} className="mt-0.5 shrink-0 text-brand-green" />
                 <span>400 Bronte Street South, Unit 108, Milton, Ontario</span>
               </li>
-              <li className="flex items-center gap-2.5 text-neutral-400 text-xs">
+              <li className="flex items-center gap-2.5 text-neutral-400 text-xl">
                 <Phone size={14} className="shrink-0 text-brand-teal" />
                 <a href="tel:+19059998144" className="hover:text-white transition-colors">905-999-8144</a>
               </li>
-              <li className="flex items-center gap-2.5 text-neutral-400 text-xs">
+              <li className="flex items-center gap-2.5 text-neutral-400 text-xl">
                 <Mail size={14} className="shrink-0 text-brand-gold" />
                 <a href="mailto:info@tdentalcare.com" className="hover:text-white transition-colors">info@tdentalcare.com</a>
               </li>
@@ -61,8 +61,8 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="font-heading font-semibold text-sm mb-4">Hours</h3>
-            <ul className="space-y-2 text-neutral-400 text-xs">
+            <h3 className="font-heading font-semibold text-xl mb-4">Hours</h3>
+            <ul className="space-y-2 text-neutral-400 text-xl">
               <li className="flex items-center gap-2">
                 <Clock size={12} className="text-brand-green" />
                 Mon-Thu: 10 AM - 7 PM

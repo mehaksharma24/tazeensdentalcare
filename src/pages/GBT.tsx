@@ -1,6 +1,9 @@
 import { motion } from 'framer-motion';
 import { ArrowRight, Award, CheckCircle, Droplets, Shield, Star, Zap } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import gbt1 from '../assets/gbt1.png';
+import gbt2 from '../assets/gbt2.png';
+import gbt3 from '../assets/gbt3.png';
 import { FloatingBubble, FloatingMirror, FloatingMolar, FloatingSparkle, FloatingTooth, FloatingToothbrush } from '../components/FloatingElements';
 import { ImageSlideshow } from '../components/ImageSlideshow';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
@@ -9,9 +12,11 @@ export function GBT() {
   return (
     <div className="overflow-hidden">
       <HeroBanner />
-      <AnimatedIntro />
-      <StepsSection />
-      <BenefitsSection />
+      <GbtImageBody>
+        <AnimatedIntro />
+        <StepsSection />
+        <BenefitsSection />
+      </GbtImageBody>
       <CTASection />
     </div>
   );
@@ -51,11 +56,29 @@ function HeroBanner() {
         <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.4 }} className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-neutral-900">
           Guided Biofilm <span className="text-brand-teal">Therapy</span>
         </motion.h1>
-        <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.7 }} className="mt-5 text-neutral-600 max-w-lg mx-auto text-lg">
+        <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.7 }} className="mt-5 text-neutral-600 max-w-xl mx-auto text-xl">
           The future of dental cleaning is here.
         </motion.p>
       </div>
     </section>
+  );
+}
+
+function GbtImageBody({ children }) {
+  return (
+    <div
+      className="relative"
+      style={{
+        backgroundImage: `url(${gbt1})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+        backgroundAttachment: "fixed",
+      }}
+    >
+      <div className="absolute inset-0 bg-white/80" />
+      <div className="relative">{children}</div>
+    </div>
   );
 }
 
@@ -77,7 +100,7 @@ function AnimatedIntro() {
   ];
 
   return (
-    <section ref={ref} className="section-padding bg-gradient-to-b from-white to-brand-teal/5">
+    <section ref={ref} className="section-padding">
       <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
         <div>
           <div className="mb-6">
@@ -98,7 +121,7 @@ function AnimatedIntro() {
             initial={{ opacity: 0 }}
             animate={isVisible ? { opacity: 1 } : {}}
             transition={{ delay: 0.5, duration: 0.5 }}
-            className="text-neutral-600 text-sm leading-relaxed"
+            className="text-neutral-600 text-xl leading-relaxed"
           >
             Guided Biofilm Therapy is an advanced cleaning technique that removes plaque and harmful bacteria using airflow technology. Unlike traditional methods, it's gentle yet incredibly effective.
           </motion.p>
@@ -115,7 +138,7 @@ function AnimatedIntro() {
                 initial={{ opacity: 0, x: -20 }}
                 animate={isVisible ? { opacity: 1, x: 0 } : {}}
                 transition={{ delay: 0.8 + i * 0.08, duration: 0.4 }}
-                className="flex items-center gap-2.5 text-sm text-neutral-700"
+                className="flex items-center gap-2.5 text-lg text-neutral-700"
               >
                 <span className="w-5 h-5 rounded-full bg-brand-teal/10 flex items-center justify-center shrink-0">
                   <CheckCircle size={12} className="text-brand-teal" />
@@ -136,10 +159,9 @@ function AnimatedIntro() {
             {/* Replace with your own images in /assets/images/gbt/ */}
             <ImageSlideshow
               images={[
-                'https://images.pexels.com/photos/6627536/pexels-photo-6627536.jpeg?auto=compress&cs=tinysrgb&w=700',
-                'https://images.pexels.com/photos/3845625/pexels-photo-3845625.jpeg?auto=compress&cs=tinysrgb&w=700',
-                'https://images.pexels.com/photos/3779709/pexels-photo-3779709.jpeg?auto=compress&cs=tinysrgb&w=700',
-                'https://images.pexels.com/photos/3845810/pexels-photo-3845810.jpeg?auto=compress&cs=tinysrgb&w=700',
+                gbt1,
+                gbt2,
+                gbt3,
               ]}
               alt="GBT Treatment"
               interval={4000}
@@ -194,11 +216,11 @@ function StepsSection() {
                 className="bg-white/5 backdrop-blur-sm rounded-xl p-5 flex items-start gap-4 hover:bg-white/10 hover:-translate-y-0.5 transition-all border border-white/10 md:ml-10"
               >
                 <div className="shrink-0 w-11 h-11 rounded-xl flex items-center justify-center" style={{ background: `${item.color}25`, border: `2px solid ${item.color}50` }}>
-                  <span className="font-heading font-bold text-xs" style={{ color: item.color === '#00A5B5' ? '#4DD9E5' : item.color === '#6BBF4A' ? '#8FD670' : '#F5C86A' }}>{item.step}</span>
+                  <span className="font-heading font-bold text-lg" style={{ color: item.color === '#00A5B5' ? '#4DD9E5' : item.color === '#6BBF4A' ? '#8FD670' : '#F5C86A' }}>{item.step}</span>
                 </div>
                 <div>
                   <h3 className="font-heading font-bold text-white text-sm tracking-wide">{item.title}</h3>
-                  <p className="text-neutral-300 text-sm mt-1">{item.desc}</p>
+                  <p className="text-neutral-300 text-lg mt-1">{item.desc}</p>
                 </div>
               </motion.div>
             ))}
@@ -220,7 +242,7 @@ function BenefitsSection() {
   ];
 
   return (
-    <section ref={ref} className="section-padding bg-gradient-to-b from-brand-green/5 to-white">
+    <section ref={ref} className="section-padding">
       <div className="max-w-7xl mx-auto">
         <motion.div initial={{ opacity: 0, y: 30 }} animate={isVisible ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6 }} className="text-center mb-8">
           <h2 className="font-heading text-2xl md:text-3xl font-bold text-neutral-900">Why <span className="text-brand-teal">GBT</span>?</h2>
@@ -241,8 +263,8 @@ function BenefitsSection() {
               >
                 <item.icon size={22} className="text-brand-teal" />
               </motion.div>
-              <h3 className="font-heading font-semibold text-sm text-neutral-800">{item.title}</h3>
-              <p className="mt-1 text-xs text-neutral-500">{item.desc}</p>
+              <h3 className="font-heading font-semibold text-lg text-neutral-800">{item.title}</h3>
+              <p className="mt-1 text-lg text-neutral-500">{item.desc}</p>
             </motion.div>
           ))}
         </div>
@@ -261,11 +283,11 @@ function CTASection() {
           <motion.div key={i} className="absolute w-2 h-2 rounded-full bg-white/20" style={{ left: `${15 + i * 12}%`, top: '20%' }} animate={{ y: [0, 30, 0], opacity: [0.2, 0.5, 0.2] }} transition={{ duration: 3, repeat: Infinity, delay: i * 0.3 }} />
         ))}
         <div className="relative">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/20 text-sm font-medium mb-3">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/20 text-lg font-medium mb-3">
             <Award size={14} /> Advanced GBT Technology
           </div>
           <h2 className="font-heading text-2xl md:text-3xl font-bold">Experience the Future of Dental Cleaning</h2>
-          <p className="mt-3 text-white/80 text-sm">Book your GBT appointment today and feel the difference.</p>
+          <p className="mt-3 text-white/80 text-lg">Book your GBT appointment today and feel the difference.</p>
           <Link to="/booking" className="btn-accent mt-6 inline-flex">
             Book GBT Appointment <ArrowRight size={16} className="ml-2" />
           </Link>

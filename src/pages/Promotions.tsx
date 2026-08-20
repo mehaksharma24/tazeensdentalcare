@@ -1,9 +1,9 @@
 import { motion } from 'framer-motion';
+import { ArrowRight, Sparkles, Tag } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Tag, Sparkles } from 'lucide-react';
-import { useScrollAnimation } from '../hooks/useScrollAnimation';
-import { FloatingTooth, FloatingToothbrush, FloatingMolar, FloatingSparkle, FloatingBubble } from '../components/FloatingElements';
 import tw1 from '../assets/tw1.png';
+import { FloatingBubble, FloatingMolar, FloatingSparkle, FloatingTooth, FloatingToothbrush } from '../components/FloatingElements';
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 export function Promotions() {
   return (
@@ -27,7 +27,7 @@ function HeroBanner() {
 
       <div className="relative max-w-7xl mx-auto px-4 text-center">
         <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-gold/15 text-brand-gold-dark text-sm font-medium mb-4">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-gold/15 text-brand-gold-dark text-lg font-medium mb-4">
             <Tag size={14} /> Special Offers
           </div>
           <h1 className="font-heading text-4xl md:text-5xl font-bold text-neutral-900">
@@ -69,17 +69,17 @@ function PromoCard() {
               <h2 className="font-heading text-2xl md:text-3xl font-bold text-neutral-900">
                 Ask Us About Our <span className="text-brand-gold-dark">Whitening Offer</span>
               </h2>
-              <p className="mt-3 text-neutral-600 text-sm leading-relaxed">
+              <p className="mt-3 text-neutral-600 text-lg leading-relaxed">
                 Complete a full cleaning and exam, and receive <span className="font-semibold text-neutral-800">FREE teeth whitening</span> — a brighter, healthier smile in one visit. Welcoming new patients and refugee patients.
               </p>
               <p className="mt-3 text-neutral-500 text-xs italic">
                 Limited time offer. Cannot be combined with other offers. Ask our team for details.
               </p>
               <div className="mt-6 flex flex-wrap gap-3">
-                <Link to="/booking" className="btn-primary text-sm">
+                <Link to="/booking" className="btn-primary text-lg">
                   Book Now <ArrowRight size={14} className="ml-2" />
                 </Link>
-                <a href="tel:+19059998144" className="btn-secondary text-sm">
+                <a href="tel:+19059998144" className="btn-secondary text-lg">
                   Call 905-999-8144
                 </a>
               </div>

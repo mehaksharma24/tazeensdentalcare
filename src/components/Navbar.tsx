@@ -93,8 +93,8 @@ export function Navbar() {
             {/* -------------------------------- */}
 
             <span className="font-heading font-bold text-lg">
-              <span className="text-brand-teal">TAZEEN'S</span>{' '}
-              <span className="text-neutral-700">DENTAL CARE</span>
+              <span className="text-brand-teal">Tazeen's</span>{' '}
+              <span className="text-neutral-700">Dental Care</span>
             </span>
           </Link>
 
@@ -104,7 +104,7 @@ export function Navbar() {
                 <div key={link.label} className="relative">
                   <button
                     onClick={() => setOpenDropdown(openDropdown === link.label ? null : link.label)}
-                    className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors flex items-center gap-1 ${
+                    className={`px-3 py-2 rounded-lg text-xl font-medium transition-colors flex items-center gap-1 ${
                       isActive(link)
                         ? 'text-brand-teal bg-brand-teal/5'
                         : 'text-neutral-600 hover:text-brand-teal hover:bg-neutral-50'
@@ -126,7 +126,7 @@ export function Navbar() {
                           <Link
                             key={sub.to}
                             to={sub.to}
-                            className={`block px-4 py-2.5 text-sm font-medium transition-colors ${
+                            className={`block px-4 py-2.5 text-xl font-medium transition-colors ${
                               location.pathname + location.hash === sub.to
                                 ? 'text-brand-teal bg-brand-teal/5'
                                 : 'text-neutral-600 hover:text-brand-teal hover:bg-neutral-50'
@@ -143,7 +143,7 @@ export function Navbar() {
                 <Link
                   key={link.to}
                   to={link.to!}
-                  className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
+                  className={`px-3 py-2 rounded-lg text-xl font-medium transition-colors ${
                     location.pathname === link.to
                       ? 'text-brand-teal bg-brand-teal/5'
                       : 'text-neutral-600 hover:text-brand-teal hover:bg-neutral-50'

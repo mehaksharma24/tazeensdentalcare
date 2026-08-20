@@ -2,10 +2,11 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { ArrowRight, Award, Baby, CheckCircle, ChevronLeft, ChevronRight, Clock, CreditCard, Globe, Heart, Quote, Sparkles, Star, Users } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
+import banner from "../assets/banner.jpeg";
 import cd1 from '../assets/cd1.png';
 import ec1 from '../assets/ec1.png';
 import gbt1 from '../assets/gbt1.png';
-import home2 from '../assets/home2.png';
+import home2 from '../assets/home2.jpeg';
 import nazia1 from '../assets/nazia1.png';
 import pc1 from '../assets/pc1.png';
 import pc2 from '../assets/pc2.png';
@@ -13,7 +14,8 @@ import tazeen1 from '../assets/tazeen1.jpg';
 import tw1 from '../assets/tw1.png';
 
 
-import { FloatingSparkle, FloatingTooth, FloatingToothbrush, WaveBanner } from '../components/FloatingElements';
+
+  import { FloatingSparkle, FloatingTooth, FloatingToothbrush, WaveBanner } from '../components/FloatingElements';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 export function Home() {
@@ -35,7 +37,7 @@ function PageBackdrop() {
   return (
     <div aria-hidden className="fixed inset-0 -z-10 pointer-events-none">
       <img
-        src="https://images.pexels.com/photos/296301/pexels-photo-296301.jpeg?auto=compress&cs=tinysrgb&w=1920"
+        src="https://images.pexels.com/photos/30709005/pexels-photo-30709005.jpeg?auto=compress&cs=tinysrgb&w=1920"
         alt=""
         className="w-full h-full object-cover blur-[2px] scale-105"
       />
@@ -46,7 +48,7 @@ function PageBackdrop() {
 
 function Eyebrow({ children, className = 'text-brand-teal' }: { children: React.ReactNode; className?: string }) {
   return (
-    <p className={`text-[11px] font-body font-semibold uppercase tracking-[0.2em] mb-3 ${className}`}>
+    <p className={`text-sm font-body font-semibold uppercase tracking-[0.2em] mb-3 ${className}`}>
       {children}
     </p>
   );
@@ -71,7 +73,7 @@ function HeroSection() {
             <span className="gradient-text">Your Smile</span>{' '}
             Comes First
           </h1>
-          <p className="mt-5 text-lg text-neutral-600 max-w-xl">
+          <p className="mt-5 text-xl text-neutral-600 max-w-xl">
           Milton’s GBT-guided dental clinic, focused on preventive care and precision dentistry.
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
@@ -86,31 +88,28 @@ function HeroSection() {
             <div className="flex gap-0.5">
               {[...Array(5)].map((_, j) => <Star key={j} size={16} className="text-brand-gold fill-brand-gold" />)}
             </div>
-            <p className="text-sm text-neutral-600"><span className="font-semibold text-neutral-800">5-Star Rated</span> · Google Reviews</p>
+            <p className="text-base text-neutral-600"><span className="font-semibold text-neutral-800">5-Star Rated</span> · Google Reviews</p>
           </div>
         </motion.div>
 
         <motion.div initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, delay: 0.2 }} className="relative">
           <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white/50">
-            {/* Replace with your own video: /assets/images/home/hero-video.mp4 */}
-            <video
-              autoPlay
-              muted
-              loop
-              playsInline
-              className="w-full h-[400px] lg:h-[480px] object-cover"
-              poster="https://images.pexels.com/photos/3845810/pexels-photo-3845810.jpeg?auto=compress&cs=tinysrgb&w=800"
-            >
-              {/* <source src="/assets/images/home/hero-video.mp4" type="video/mp4" /> */}
-            </video>
+          
+          <img
+  src={banner}
+  alt="Hero Banner"
+  className="w-full h-[400px] lg:h-[480px] object-cover"
+/>
+
+
           </div>
           <motion.div className="absolute -bottom-4 -left-4 bg-white rounded-2xl shadow-xl p-4 flex items-center gap-3 border border-brand-gold/20" animate={{ y: [0, -6, 0] }} transition={{ duration: 3, repeat: Infinity }}>
             <div className="w-10 h-10 rounded-full bg-brand-gold/20 flex items-center justify-center">
               <Star size={20} className="text-brand-gold-dark" />
             </div>
             <div>
-              <p className="font-semibold text-neutral-800 text-sm">5-Star Rated</p>
-              <p className="text-xs text-neutral-500">Google Reviews</p>
+              <p className="font-semibold text-neutral-800 text-base">5-Star Rated</p>
+              <p className="text-sm text-neutral-500">Google Reviews</p>
             </div>
           </motion.div>
           <motion.div className="absolute -top-4 -right-2 sm:-right-4 bg-white rounded-2xl shadow-xl p-4 hidden sm:flex items-center gap-3 border border-brand-teal/15" animate={{ y: [0, 6, 0] }} transition={{ duration: 3.5, repeat: Infinity }}>
@@ -118,8 +117,8 @@ function HeroSection() {
               <Clock size={20} className="text-brand-teal" />
             </div>
             <div>
-              <p className="font-semibold text-neutral-800 text-sm">Mon–Thu: 10 AM – 7 PM</p>
-              <p className="text-xs text-neutral-500">Fri–Sat: 10 AM – 4 PM</p>
+              <p className="font-semibold text-neutral-800 text-base">Mon–Thu: 10 AM – 7 PM</p>
+              <p className="text-sm text-neutral-500">Fri–Sat: 10 AM – 4 PM</p>
             </div>
           </motion.div>
         </motion.div>
@@ -148,7 +147,7 @@ function TrustStrip() {
               <div className="w-11 h-11 rounded-xl bg-brand-teal/10 flex items-center justify-center">
                 <item.icon size={18} className="text-brand-teal" />
               </div>
-              <span className="text-xs font-medium text-neutral-700 leading-snug">{item.label}</span>
+              <span className="text-base font-medium text-neutral-700 leading-snug">{item.label}</span>
             </motion.div>
           ))}
         </div>
@@ -165,13 +164,13 @@ function PhilosophySection() {
       <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
         <motion.div initial={{ opacity: 0, x: -30 }} animate={isVisible ? { opacity: 1, x: 0 } : {}} transition={{ duration: 0.6 }}>
           <Eyebrow>Our Approach</Eyebrow>
-          <h2 className="font-heading text-3xl md:text-4xl font-bold text-neutral-900">
+          <h2 className="font-heading text-4xl md:text-4xl font-bold text-neutral-900">
             Smiles <span className="text-brand-teal"> That Feel Easier</span>
           </h2>
-          <p className="mt-4 text-neutral-600 text-sm leading-relaxed">
+          <p className="mt-4 text-neutral-600 text-3xl leading-relaxed">
           GBT-guided care for every age
           </p>
-          <ul className="mt-6 space-y-4">
+          <ul className="mt-6 space-y-5">
             {[
             'Detecting issues early before they become serious',
             'Maintaining healthy gums for long-term tooth stability',
@@ -179,10 +178,10 @@ function PhilosophySection() {
             'Helping patients take control of their oral health through education',
             ].map((item, i) => (
               <motion.li key={i} initial={{ opacity: 0, x: -15 }} animate={isVisible ? { opacity: 1, x: 0 } : {}} transition={{ delay: 0.3 + i * 0.08, duration: 0.4 }} className="flex items-start gap-3">
-                <span className="w-6 h-6 rounded-full bg-brand-green/15 flex items-center justify-center shrink-0 mt-0.5">
-                  <CheckCircle size={14} className="text-brand-green" />
+                <span className="w-7 h-7 rounded-full bg-brand-green/15 flex items-center justify-center shrink-0 mt-0.5">
+                  <CheckCircle size={16} className="text-brand-green" />
                 </span>
-                <span className="text-neutral-700 text-sm">{item}</span>
+                <span className="text-neutral-700 text-xl">{item}</span>
               </motion.li>
             ))}
           </ul>
@@ -196,7 +195,7 @@ function PhilosophySection() {
             <div className="w-10 h-10 rounded-xl bg-brand-teal/10 flex items-center justify-center">
               <Award size={20} className="text-brand-teal" />
             </div>
-            <p className="font-semibold text-neutral-800 text-sm">GBT Certified</p>
+            <p className="font-semibold text-neutral-800 text-base">GBT Certified</p>
           </motion.div>
         </motion.div>
       </div>
@@ -220,19 +219,11 @@ function ServicesOverview() {
 
   return (
     <section ref={ref} className="relative section-padding overflow-hidden">
-      <div aria-hidden className="absolute inset-0 pointer-events-none">
-        <img
-          src="https://images.pexels.com/photos/3845981/pexels-photo-3845981.jpeg?auto=compress&cs=tinysrgb&w=1600"
-          alt=""
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-br from-[#052E35]/95 via-[#0A424B]/90 to-[#06343B]/95" />
-      </div>
       <div className="relative max-w-7xl mx-auto">
         <motion.div initial={{ opacity: 0, y: 30 }} animate={isVisible ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6 }} className="text-center mb-10">
           <Eyebrow className="text-brand-teal-light">Our Services</Eyebrow>
-          <h2 className="font-heading text-3xl md:text-4xl font-bold text-white">Complete Dental Services in <span className="text-brand-teal-light">Milton</span></h2>
-          <p className="mt-2 text-neutral-300 text-sm">Prevention, restoration, and cosmetic improvement — all under one roof.</p>
+          <h2 className="font-heading text-3xl md:text-4xl font-bold text-brand-teal">Complete Dental Services in <span className="text-brand-teal-light">Milton</span></h2>
+          <p className="mt-2 text-neutral-600 text-lg">Prevention, restoration, and cosmetic improvement — all under one roof.</p>
         </motion.div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -244,20 +235,21 @@ function ServicesOverview() {
               transition={{ delay: i * 0.08, duration: 0.5 }}
             >
               <Link to={service.link} className="group block bg-white rounded-2xl border border-neutral-100 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden hover:-translate-y-1 p-3">
-                <div className="relative h-44 overflow-hidden rounded-xl">
+                <div className="relative h-72 overflow-hidden rounded-xl">
                   {/* Replace with: /assets/images/home/service-{i}.jpg */}
                   <img src={service.image} alt={service.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
                   {service.badge && (
-                    <span className="absolute top-3 right-3 text-[10px] font-bold text-white bg-brand-teal/90 backdrop-blur-sm px-2.5 py-1 rounded-full">{service.badge}</span>
+                    <span className="absolute top-3 right-3 text-sm font-bold text-white bg-brand-teal/90 backdrop-blur-sm px-2.5 py-1 rounded-full">{service.badge}</span>
                   )}
-                  <span className="absolute -bottom-0 left-3 translate-y-1/2 w-10 h-10 rounded-xl bg-brand-teal text-white flex items-center justify-center shadow-lg">
-                    <Sparkles size={17} />
-                  </span>
+                 <span className="absolute bottom-3 left-3 w-10 h-10 rounded-xl bg-brand-teal text-white flex items-center justify-center shadow-lg">
+  <Sparkles size={17} />
+</span>
+
                 </div>
                 <div className="px-3 pt-8 pb-4">
-                  <h3 className="font-heading font-semibold text-neutral-900 group-hover:text-brand-teal transition-colors">{service.title}</h3>
-                  <p className="mt-1 text-neutral-600 text-sm">{service.desc}</p>
-                  <p className="mt-3 inline-flex items-center gap-1.5 text-brand-teal text-xs font-semibold">
+                  <h3 className="font-heading font-semibold text-xl text-neutral-900 group-hover:text-brand-teal transition-colors">{service.title}</h3>
+                  <p className="mt-1 text-neutral-600 text-lg">{service.desc}</p>
+                  <p className="mt-3 inline-flex items-center gap-1.5 text-brand-teal text-base font-semibold">
                     Learn More <ArrowRight size={13} className="group-hover:translate-x-1 transition-transform" />
                   </p>
                 </div>
@@ -267,7 +259,7 @@ function ServicesOverview() {
         </div>
 
         <div className="mt-10 text-center">
-          <Link to="/services" className="btn-primary inline-flex text-sm">View All Services <ArrowRight size={14} className="ml-2" /></Link>
+          <Link to="/services" className="btn-primary inline-flex text-base">View All Services <ArrowRight size={14} className="ml-2" /></Link>
         </div>
       </div>
     </section>
@@ -323,7 +315,7 @@ function MeetTeamSection() {
                 transition={{ duration: 0.5 }}
                 className="grid md:grid-cols-5"
               >
-                <div className="md:col-span-2 relative h-[350px] md:h-[360px]">
+                <div className="md:col-span-2 relative h-[42px] md:h-[425px]">
                   <img
                     src={team[activeSlide].image}
                     alt={team[activeSlide].name}
@@ -332,23 +324,23 @@ function MeetTeamSection() {
                 </div>
 
                 <div className="md:col-span-3 p-6 md:p-8 flex flex-col justify-center">
-                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-teal/10 text-brand-teal text-xs font-medium w-fit mb-3">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-teal/10 text-brand-teal text-base font-medium w-fit mb-3">
                     <Award size={12} /> {team[activeSlide].badge}
                   </div>
 
-                  <h3 className="font-heading text-2xl font-bold text-neutral-900">
+                  <h3 className="font-heading text-3xl font-bold text-neutral-900">
                     {team[activeSlide].name}
                   </h3>
 
-                  <p className="text-brand-teal font-medium text-sm mt-1">
+                  <p className="text-brand-teal font-medium text-lg mt-1">
                     {team[activeSlide].role}
                   </p>
 
-                  <p className="mt-3 text-neutral-600 text-sm leading-relaxed">
+                  <p className="mt-3 text-neutral-600 text-lg leading-relaxed">
                     {team[activeSlide].desc}
                   </p>
 
-                  <Link to="/about/team" className="btn-secondary mt-5 w-fit text-xs px-4 py-2">
+                  <Link to="/about/team" className="btn-secondary mt-5 w-fit text-base px-4 py-2">
                     Read Full Bio
                   </Link>
                 </div>
@@ -361,7 +353,7 @@ function MeetTeamSection() {
               <button
                 key={i}
                 onClick={() => setActiveSlide(i)}
-                className={`px-4 py-2 rounded-full text-xs font-medium transition-all ${
+                className={`px-4 py-2 rounded-full text-base font-medium transition-all ${
                   i === activeSlide
                     ? 'bg-brand-teal text-white shadow-md'
                     : 'bg-white text-neutral-600 border border-neutral-200 hover:bg-neutral-100'
@@ -382,12 +374,12 @@ function ReviewsSection() {
   const scrollRef = useRef<HTMLDivElement>(null);
 
   const reviews = [
-    { name: 'Ahsan Ahmad', text: '“Great experience. Staff is very cooperative and accomodating. The doctor is very detail oriented and never leaves without satisfaction of the client. I would highly recommend the clinic.”' },
+    { name: 'Ahsan Ahmad', text: '“Great experience. Staff is very cooperative and accomodating. The doctor is very detail oriented and never leaves without satisfaction of the client.   I would highly recommend the clinic.”'            },
     { name: 'Iman Salman', text: '“Amazing! This dental clinic is amazing. The team is warm and welcoming. The dentist was gentle and explained each step clearly. The clinic is clean, the service is quick, and the care is excellent.”' },
-    { name: 'Rehan Altaf', text: '“The dental hygienists are professional and thorough. Another highlight is their reasonable fees for all treatments including Zoom whitening in office. I highly recommend Tazeen’s Dental Care.”' },
-    { name: 'Ahsan Ahmad', text: '“Great experience. Staff is very cooperative and accomodating. The doctor is very detail oriented and never leaves without satisfaction of the client. I would highly recommend the clinic.”' },
+    { name: 'Rehan Altaf', text: '“The dental hygienists are professional and thorough. Another highlight is their reasonable fees for all treatments including Zoom whitening in office.  I highly recommend Tazeen’s Dental Care.”'       },
+    { name: 'Ahsan Ahmad', text: '“Great experience. Staff is very cooperative and accomodating. The doctor is very detail oriented and never leaves without satisfaction of the client.  I would highly recommend the clinic.”'            },
     { name: 'Iman Salman', text: '“Amazing! This dental clinic is amazing. The team is warm and welcoming. The dentist was gentle and explained each step clearly. The clinic is clean, the service is quick, and the care is excellent.”' },
-    { name: 'Rehan Altaf', text: '“The dental hygienists are professional and thorough. Another highlight is their reasonable fees for all treatments including Zoom whitening in office. I highly recommend Tazeen’s Dental Care.”' },
+    { name: 'Rehan Altaf', text: '“The dental hygienists are professional and thorough. Another highlight is their reasonable fees for all treatments including Zoom whitening in office. I highly recommend Tazeen’s Dental Care.”'       },
 
   ];
 
@@ -408,7 +400,7 @@ function ReviewsSection() {
           alt=""
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-[#0A3038]/95 via-[#123E48]/90 to-[#0A3038]/95" />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#0A2E52]/95 via-[#0C3C66]/90 to-[#0A2E52]/95" />
       </div>
       <div className="relative max-w-7xl mx-auto">
         <motion.div initial={{ opacity: 0, y: 30 }} animate={isVisible ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6 }} className="flex items-end justify-between mb-10">
@@ -437,7 +429,7 @@ function ReviewsSection() {
                 <div className="relative bg-white rounded-2xl shadow-lg p-6 border border-neutral-100">
                   <Quote size={26} className="text-brand-teal/20 absolute top-4 right-4" />
                   <div className="flex gap-0.5 mb-3">{[...Array(5)].map((_, j) => <Star key={j} size={13} className="text-brand-gold fill-brand-gold" />)}</div>
-                  <p className="text-neutral-600 text-sm leading-relaxed">{r.text}</p>
+                  <p className="text-neutral-600 text-lg leading-relaxed">{r.text}</p>
                   <div className="absolute -bottom-2 left-10 w-4 h-4 bg-white rotate-45 border-b border-r border-neutral-100" />
                 </div>
                 <div className="mt-5 flex items-center gap-3 pl-4">
@@ -445,8 +437,8 @@ function ReviewsSection() {
                     {r.name.charAt(0)}
                   </div>
                   <div>
-                    <p className="font-semibold text-white text-sm">{r.name}</p>
-                    <p className="text-xs text-white/60">Google Review</p>
+                    <p className="font-semibold text-white text-base">{r.name}</p>
+                    <p className="text-sm text-white/60">Google Review</p>
                   </div>
                 </div>
               </div>
@@ -480,7 +472,7 @@ function CTASection() {
             </div>
             <div className="text-white text-center md:text-left">
               <h2 className="font-heading text-2xl md:text-3xl font-bold">Take the First Step Toward Better Oral Health</h2>
-              <p className="mt-2 text-white/80 text-sm md:text-base">Preventive care starts with one visit. Experience a different kind of dental care in Milton.</p>
+              <p className="mt-2 text-white/80 text-base md:text-lg">Preventive care starts with one visit. Experience a different kind of dental care in Milton.</p>
             </div>
             <div className="flex flex-wrap justify-center md:justify-end gap-3 shrink-0">
               <Link to="/booking" className="btn-accent text-sm md:text-base px-7 py-3.5">Book Appointment <ArrowRight size={16} className="ml-2" /></Link>

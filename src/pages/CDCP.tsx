@@ -7,17 +7,78 @@ import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 export function CDCP() {
   return (
-    <div className="overflow-hidden">
-      <HeroBanner />
-      <IntroSection />
-      <OfficialInfoSection />
-      <CoverageTable />
-      <EligibilityCalculator />
-      <WhatCDCPCovers />
-      <HowWeHelp />
-      <FAQSection />
-      <CTASection />
+    <div className="overflow-hidden relative">
+      <CanadaScenicBackground />
+      <div className="relative z-10">
+        <HeroBanner />
+        <IntroSection />
+        <OfficialInfoSection />
+        <CoverageTable />
+        <EligibilityCalculator />
+        <WhatCDCPCovers />
+        <HowWeHelp />
+        <FAQSection />
+        <CTASection />
+      </div>
     </div>
+  );
+}
+
+/**
+ * A light, airy, scenic Canadian-themed background that sits behind the
+ * whole page. Combines a very softly-faded scenic Canadian landscape photo
+ * with a bright white/red wash (Canada flag colors) and faint maple-leaf
+ * watermarks, so it reads as "light" rather than heavy or photographic.
+ */
+function CanadaScenicBackground() {
+  return (
+    <div className="fixed inset-0 -z-10 pointer-events-none overflow-hidden bg-white">
+      {/* Real scenic photo: Canadian flag against snow-capped mountains (Pexels) */}
+      <div
+        className="absolute inset-0 bg-cover bg-center opacity-[0.16]"
+        style={{
+          backgroundImage:
+            "url('https://images.pexels.com/photos/3744724/pexels-photo-3744724.jpeg?auto=compress&cs=tinysrgb&w=1920')",
+        }}
+      />
+
+      {/* Bright, light wash on top so the photo reads as airy, not heavy, and content stays easy to read */}
+      <div className="absolute inset-0 bg-gradient-to-b from-white/80 via-white/85 to-red-50/70" />
+
+      {/* Subtle red edge stripes, echoing the Canadian flag's side bars */}
+      <div className="absolute top-0 left-0 w-3 h-full bg-gradient-to-b from-red-600/10 via-red-600/5 to-red-600/10" />
+      <div className="absolute top-0 right-0 w-3 h-full bg-gradient-to-b from-red-600/10 via-red-600/5 to-red-600/10" />
+
+      {/* Faint scattered maple leaf watermarks */}
+      <MapleLeafWatermark className="top-[8%] left-[6%]" size={70} rotate={-15} />
+      <MapleLeafWatermark className="top-[28%] right-[9%]" size={90} rotate={20} />
+      <MapleLeafWatermark className="top-[52%] left-[10%]" size={60} rotate={40} />
+      <MapleLeafWatermark className="top-[74%] right-[14%]" size={80} rotate={-25} />
+      <MapleLeafWatermark className="top-[92%] left-[20%]" size={55} rotate={10} />
+    </div>
+  );
+}
+
+function MapleLeafWatermark({
+  className = '',
+  size = 60,
+  rotate = 0,
+}: {
+  className?: string;
+  size?: number;
+  rotate?: number;
+}) {
+  return (
+    <svg
+      className={`absolute opacity-[0.05] ${className}`}
+      width={size}
+      height={size}
+      viewBox="0 0 100 100"
+      style={{ transform: `rotate(${rotate}deg)` }}
+      fill="#C41E3A"
+    >
+      <path d="M50 4 L57 26 L74 14 L68 34 L88 30 L74 44 L92 54 L70 56 L78 74 L60 64 L58 84 L50 68 L42 84 L40 64 L22 74 L30 56 L8 54 L26 44 L12 30 L32 34 L26 14 L43 26 Z M47 66 L43 92 L50 84 L57 92 L53 66 Z" />
+    </svg>
   );
 }
 
@@ -38,7 +99,7 @@ function HeroBanner() {
       <div className="relative overflow-hidden" style={{ background: 'linear-gradient(100deg, #FFF6EC 0%, #FFD9C4 40%, #F58E75 100%)' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-14 md:pt-20 grid md:grid-cols-2 gap-8 items-end">
           <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }} className="pb-10 md:pb-16">
-            <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ type: 'spring', stiffness: 300, delay: 0.3 }} className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-white/70 border border-white text-sm font-medium mb-6">
+            <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ type: 'spring', stiffness: 300, delay: 0.3 }} className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-white/70 border border-white text-lg font-medium mb-6">
               <CanadaFlag />
               <span className="text-red-700">Welcoming New & Refugee Patients</span>
             </motion.div>
@@ -48,7 +109,7 @@ function HeroBanner() {
             <p className="mt-4 font-semibold text-neutral-900 tracking-wide">
               Accessible. Affordable. Essential.
             </p>
-            <p className="mt-4 text-neutral-800/80 max-w-md text-sm leading-relaxed">
+            <p className="mt-4 text-neutral-800/80 max-w-md text-lg leading-relaxed">
               No private insurance? No employer benefits? The Canadian Dental Care Plan helps you access essential dental treatment — even if you're not employed.
             </p>
           </motion.div>
@@ -77,15 +138,15 @@ function IntroSection() {
             <CanadaFlag />
             <h2 className="font-heading text-3xl font-bold text-neutral-900">CDCP At Tazeen's Dental Care</h2>
           </div>
-          <p className="mt-3 text-neutral-600 text-sm leading-relaxed">
+          <p className="mt-3 text-neutral-600 text-lg leading-relaxed">
             The Canadian Dental Care Plan (CDCP) is a federal program designed to make dental care more accessible for eligible Canadians who do not have private dental insurance — whether you're unemployed, self-employed, or simply don't have benefits through work.
           </p>
-          <p className="mt-3 text-neutral-600 text-sm leading-relaxed">
+          <p className="mt-3 text-neutral-600 text-lg leading-relaxed">
             It helps cover the cost of:
           </p>
           <ul className="mt-3 space-y-2">
             {['Preventive dental care (cleanings, exams)', 'Basic restorative treatments (fillings)', 'Gum health treatments (scaling)'].map((item) => (
-              <li key={item} className="flex items-center gap-2.5 text-sm text-neutral-700">
+              <li key={item} className="flex items-center gap-2.5 text-lg text-neutral-700">
                 <CheckCircle size={15} className="text-red-500 shrink-0" /> {item}
               </li>
             ))}
@@ -130,13 +191,13 @@ function OfficialInfoSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-6"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-teal/10 text-brand-teal text-xs font-medium mb-3">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-teal/10 text-brand-teal text-lg font-medium mb-3">
             <FileText size={14} /> Official Program Information
           </div>
           <h2 className="font-heading text-2xl md:text-3xl font-bold text-neutral-900">
             About the <span className="text-red-600">CDCP</span> Program
           </h2>
-          <p className="mt-2 text-neutral-500 text-sm">
+          <p className="mt-2 text-neutral-500 text-lg">
             Summarized from the Government of Canada
           </p>
         </motion.div>
@@ -168,7 +229,7 @@ function OfficialInfoSection() {
               <div className="w-7 h-7 rounded-lg bg-brand-teal/10 flex items-center justify-center shrink-0 mt-0.5">
                 <CheckCircle size={14} className="text-brand-teal" />
               </div>
-              <p className="text-neutral-700 text-sm leading-relaxed">
+              <p className="text-neutral-700 text-lg leading-relaxed">
                 {point}
               </p>
             </motion.div>
@@ -195,7 +256,7 @@ function CoverageTable() {
       <div className="max-w-3xl mx-auto">
         <motion.div initial={{ opacity: 0, y: 30 }} animate={isVisible ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6 }} className="text-center mb-8">
           <h2 className="font-heading text-2xl md:text-3xl font-bold text-neutral-900">Coverage <span className="text-brand-teal">Breakdown</span></h2>
-          <p className="mt-2 text-neutral-600 text-sm">Based on Adjusted Family Net Income (AFNI)</p>
+          <p className="mt-2 text-neutral-600 text-lg">Based on Adjusted Family Net Income (AFNI)</p>
         </motion.div>
 
         <motion.div
@@ -205,7 +266,7 @@ function CoverageTable() {
           className="rounded-2xl overflow-hidden shadow-xl border border-brand-teal/10"
         >
           <div className="overflow-x-auto">
-            <table className="w-full text-sm">
+            <table className="w-full text-lg">
               <thead>
                 <tr className="bg-gradient-to-r from-brand-teal via-brand-green to-brand-gold text-white">
                   <th className="px-5 py-4 text-left font-heading font-semibold">Adjusted Family Net Income</th>
@@ -230,7 +291,7 @@ function CoverageTable() {
           initial={{ opacity: 0 }}
           animate={isVisible ? { opacity: 1 } : {}}
           transition={{ delay: 0.5, duration: 0.4 }}
-          className="mt-4 text-xs text-neutral-500 text-center italic px-4"
+          className="mt-4 text-lg text-neutral-500 text-center italic px-4"
         >
           Coverage is based on the CDCP fee guide and may differ from the Ontario Dental Association fee guide.
         </motion.p>
@@ -268,11 +329,11 @@ function EligibilityCalculator() {
     <section ref={ref} id="eligibility-calculator" className="section-padding" style={{ background: 'linear-gradient(135deg, rgba(0,165,181,0.06) 0%, rgba(107,191,74,0.04) 50%, rgba(232,168,56,0.04) 100%)' }}>
       <div className="max-w-2xl mx-auto">
         <motion.div initial={{ opacity: 0, y: 30 }} animate={isVisible ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6 }} className="text-center mb-8">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-gold/10 text-brand-gold-dark text-xs font-medium mb-3">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-gold/10 text-brand-gold-dark text-lg font-medium mb-3">
             <Calculator size={14} /> Quick Check
           </div>
           <h2 className="font-heading text-2xl md:text-3xl font-bold text-neutral-900">Check Your <span className="text-brand-teal">Eligibility</span></h2>
-          <p className="mt-2 text-neutral-600 text-sm">Answer a few quick questions to see if you may qualify.</p>
+          <p className="mt-2 text-neutral-600 text-lg">Answer a few quick questions to see if you may qualify.</p>
         </motion.div>
 
         <motion.div
@@ -283,44 +344,44 @@ function EligibilityCalculator() {
         >
           <div className="space-y-5">
             <div>
-              <label className="block text-sm font-medium text-neutral-800 mb-2">Adjusted Family Net Income</label>
+              <label className="block text-lg font-medium text-neutral-800 mb-2">Adjusted Family Net Income</label>
               <input
                 type="number"
                 value={income}
                 onChange={(e) => { setIncome(e.target.value); setResult(null); }}
                 placeholder="e.g. 65000"
-                className="w-full px-4 py-3 rounded-xl border border-neutral-200 focus:border-brand-teal focus:ring-2 focus:ring-brand-teal/20 outline-none transition-all text-sm"
+                className="w-full px-4 py-3 rounded-xl border border-neutral-200 focus:border-brand-teal focus:ring-2 focus:ring-brand-teal/20 outline-none transition-all text-lg"
               />
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-neutral-800 mb-2">Do you have private dental insurance?</label>
+              <label className="block text-lg font-medium text-neutral-800 mb-2">Do you have private dental insurance?</label>
               <div className="flex gap-3">
-                <button onClick={() => { setHasInsurance('yes'); setResult(null); }} className={`flex-1 px-4 py-3 rounded-xl border text-sm font-medium transition-all ${hasInsurance === 'yes' ? 'border-brand-teal bg-brand-teal/10 text-brand-teal' : 'border-neutral-200 text-neutral-600 hover:border-neutral-300'}`}>Yes</button>
-                <button onClick={() => { setHasInsurance('no'); setResult(null); }} className={`flex-1 px-4 py-3 rounded-xl border text-sm font-medium transition-all ${hasInsurance === 'no' ? 'border-brand-teal bg-brand-teal/10 text-brand-teal' : 'border-neutral-200 text-neutral-600 hover:border-neutral-300'}`}>No</button>
+                <button onClick={() => { setHasInsurance('yes'); setResult(null); }} className={`flex-1 px-4 py-3 rounded-xl border text-lg font-medium transition-all ${hasInsurance === 'yes' ? 'border-brand-teal bg-brand-teal/10 text-brand-teal' : 'border-neutral-200 text-neutral-600 hover:border-neutral-300'}`}>Yes</button>
+                <button onClick={() => { setHasInsurance('no'); setResult(null); }} className={`flex-1 px-4 py-3 rounded-xl border text-lg font-medium transition-all ${hasInsurance === 'no' ? 'border-brand-teal bg-brand-teal/10 text-brand-teal' : 'border-neutral-200 text-neutral-600 hover:border-neutral-300'}`}>No</button>
               </div>
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-neutral-800 mb-2">Are you a Canadian resident for tax purposes?</label>
+              <label className="block text-lg font-medium text-neutral-800 mb-2">Are you a Canadian resident for tax purposes?</label>
               <div className="flex gap-3">
-                <button onClick={() => { setIsResident('yes'); setResult(null); }} className={`flex-1 px-4 py-3 rounded-xl border text-sm font-medium transition-all ${isResident === 'yes' ? 'border-brand-teal bg-brand-teal/10 text-brand-teal' : 'border-neutral-200 text-neutral-600 hover:border-neutral-300'}`}>Yes</button>
-                <button onClick={() => { setIsResident('no'); setResult(null); }} className={`flex-1 px-4 py-3 rounded-xl border text-sm font-medium transition-all ${isResident === 'no' ? 'border-brand-teal bg-brand-teal/10 text-brand-teal' : 'border-neutral-200 text-neutral-600 hover:border-neutral-300'}`}>No</button>
+                <button onClick={() => { setIsResident('yes'); setResult(null); }} className={`flex-1 px-4 py-3 rounded-xl border text-lg font-medium transition-all ${isResident === 'yes' ? 'border-brand-teal bg-brand-teal/10 text-brand-teal' : 'border-neutral-200 text-neutral-600 hover:border-neutral-300'}`}>Yes</button>
+                <button onClick={() => { setIsResident('no'); setResult(null); }} className={`flex-1 px-4 py-3 rounded-xl border text-lg font-medium transition-all ${isResident === 'no' ? 'border-brand-teal bg-brand-teal/10 text-brand-teal' : 'border-neutral-200 text-neutral-600 hover:border-neutral-300'}`}>No</button>
               </div>
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-neutral-800 mb-2">Have you filed your most recent tax return?</label>
+              <label className="block text-lg font-medium text-neutral-800 mb-2">Have you filed your most recent tax return?</label>
               <div className="flex gap-3">
-                <button onClick={() => { setFiledTax('yes'); setResult(null); }} className={`flex-1 px-4 py-3 rounded-xl border text-sm font-medium transition-all ${filedTax === 'yes' ? 'border-brand-teal bg-brand-teal/10 text-brand-teal' : 'border-neutral-200 text-neutral-600 hover:border-neutral-300'}`}>Yes</button>
-                <button onClick={() => { setFiledTax('no'); setResult(null); }} className={`flex-1 px-4 py-3 rounded-xl border text-sm font-medium transition-all ${filedTax === 'no' ? 'border-brand-teal bg-brand-teal/10 text-brand-teal' : 'border-neutral-200 text-neutral-600 hover:border-neutral-300'}`}>No</button>
+                <button onClick={() => { setFiledTax('yes'); setResult(null); }} className={`flex-1 px-4 py-3 rounded-xl border text-lg font-medium transition-all ${filedTax === 'yes' ? 'border-brand-teal bg-brand-teal/10 text-brand-teal' : 'border-neutral-200 text-neutral-600 hover:border-neutral-300'}`}>Yes</button>
+                <button onClick={() => { setFiledTax('no'); setResult(null); }} className={`flex-1 px-4 py-3 rounded-xl border text-lg font-medium transition-all ${filedTax === 'no' ? 'border-brand-teal bg-brand-teal/10 text-brand-teal' : 'border-neutral-200 text-neutral-600 hover:border-neutral-300'}`}>No</button>
               </div>
             </div>
 
             <button
               onClick={checkEligibility}
               disabled={!isFormComplete}
-              className={`w-full py-3.5 rounded-xl font-medium text-sm transition-all ${isFormComplete ? 'bg-brand-teal text-white hover:bg-brand-teal-dark shadow-lg' : 'bg-neutral-100 text-neutral-400 cursor-not-allowed'}`}
+              className={`w-full py-3.5 rounded-xl font-medium text-lg transition-all ${isFormComplete ? 'bg-brand-teal text-white hover:bg-brand-teal-dark shadow-lg' : 'bg-neutral-100 text-neutral-400 cursor-not-allowed'}`}
             >
               Check Eligibility
             </button>
@@ -340,8 +401,8 @@ function EligibilityCalculator() {
                       <CheckCircle size={18} className="text-brand-green" />
                       <p className="font-heading font-bold text-brand-green-dark">You are likely eligible for CDCP coverage.</p>
                     </div>
-                    <p className="text-sm text-neutral-600 mb-4">Based on your answers, you may qualify for the Canadian Dental Care Plan. Book an appointment and we'll help verify your coverage.</p>
-                    <Link to="/booking" className="btn-primary text-sm">
+                    <p className="text-lg text-neutral-600 mb-4">Based on your answers, you may qualify for the Canadian Dental Care Plan. Book an appointment and we'll help verify your coverage.</p>
+                    <Link to="/booking" className="btn-primary text-lg">
                       Book Your CDCP Appointment <ArrowRight size={14} className="ml-2" />
                     </Link>
                   </div>
@@ -351,8 +412,8 @@ function EligibilityCalculator() {
                       <Shield size={18} className="text-brand-gold-dark" />
                       <p className="font-heading font-bold text-neutral-800">You may not qualify for CDCP, but we can still help.</p>
                     </div>
-                    <p className="text-sm text-neutral-600 mb-4">Don't worry — our team can discuss other options to make dental care affordable for you.</p>
-                    <a href="tel:+19059998144" className="btn-secondary text-sm inline-flex">
+                    <p className="text-lg text-neutral-600 mb-4">Don't worry — our team can discuss other options to make dental care affordable for you.</p>
+                    <a href="tel:+19059998144" className="btn-secondary text-lg inline-flex">
                       <Phone size={14} className="mr-2" /> Call Us to Discuss Options
                     </a>
                   </div>
@@ -400,7 +461,7 @@ function WhatCDCPCovers() {
               <h3 className={`font-heading font-semibold text-${cat.color} mb-3`}>{cat.title}</h3>
               <ul className="space-y-2">
                 {cat.items.map((item) => (
-                  <li key={item} className="flex items-center gap-2 text-sm text-neutral-700">
+                  <li key={item} className="flex items-center gap-2 text-lg text-neutral-700">
                     <CheckCircle size={13} className={`text-${cat.color} shrink-0`} /> {item}
                   </li>
                 ))}
@@ -429,18 +490,18 @@ function HowWeHelp() {
           transition={{ delay: 0.2, duration: 0.5 }}
           className="bg-white rounded-2xl shadow-xl p-6 md:p-8 border border-brand-teal/10"
         >
-          <p className="text-neutral-700 text-sm leading-relaxed">
+          <p className="text-neutral-700 text-lg leading-relaxed">
             We know the CDCP process can feel confusing — don't worry, we've got you.
           </p>
-          <p className="mt-3 text-neutral-700 text-sm leading-relaxed">
+          <p className="mt-3 text-neutral-700 text-lg leading-relaxed">
             Whether you're unsure about eligibility, paperwork, or what documents you need, we make it simple.
           </p>
 
           <div className="mt-5 p-4 rounded-xl bg-brand-teal/5 border border-brand-teal/10">
-            <p className="text-neutral-800 text-sm font-medium">
+            <p className="text-neutral-800 text-lg font-medium">
               Got questions? Just call us or walk in.
             </p>
-            <p className="mt-2 text-neutral-600 text-sm leading-relaxed">
+            <p className="mt-2 text-neutral-600 text-lg leading-relaxed">
               Our team will help you check your eligibility, understand your coverage, and even guide you through the filing process so you don't have to figure it out alone.
             </p>
           </div>
@@ -454,8 +515,8 @@ function HowWeHelp() {
               <Heart size={18} className="text-brand-green" />
             </motion.div>
             <div>
-              <p className="font-heading font-bold text-neutral-900 text-sm">No stress. No guesswork.</p>
-              <p className="text-neutral-600 text-sm">Just clear answers and friendly support every step of the way.</p>
+              <p className="font-heading font-bold text-neutral-900 text-lg">No stress. No guesswork.</p>
+              <p className="text-neutral-600 text-lg">Just clear answers and friendly support every step of the way.</p>
             </div>
           </div>
         </motion.div>
@@ -501,7 +562,7 @@ function FAQSection() {
               >
                 <div className="flex items-center gap-3">
                   <FloatingToothIcon />
-                  <h3 className="font-heading font-semibold text-neutral-900 text-sm">{faq.q}</h3>
+                  <h3 className="font-heading font-semibold text-neutral-900 text-lg">{faq.q}</h3>
                 </div>
                 <motion.div
                   animate={{ rotate: openIndex === i ? 180 : 0 }}
@@ -519,7 +580,7 @@ function FAQSection() {
                     transition={{ duration: 0.3 }}
                   >
                     <div className="px-5 pb-4 pl-12">
-                      <p className="text-neutral-600 text-sm">{faq.a}</p>
+                      <p className="text-neutral-600 text-lg">{faq.a}</p>
                     </div>
                   </motion.div>
                 )}
@@ -556,17 +617,17 @@ function CTASection() {
         <div className="relative">
           <CanadaFlag className="mx-auto mb-4" />
           <h2 className="font-heading text-2xl md:text-3xl font-bold">Get Started with CDCP Today</h2>
-          <p className="mt-3 text-white/85 text-sm max-w-md mx-auto">
+          <p className="mt-3 text-white/85 text-lg max-w-md mx-auto">
             Book your visit and let our team help you access affordable, preventive dental care in Milton.
           </p>
           <div className="mt-6 flex flex-wrap justify-center gap-3">
             <a
               href="#eligibility-calculator"
-              className="inline-flex items-center px-6 py-3 rounded-full font-medium text-red-700 bg-white hover:bg-neutral-100 transition-all shadow-lg text-sm"
+              className="inline-flex items-center px-6 py-3 rounded-full font-medium text-red-700 bg-white hover:bg-neutral-100 transition-all shadow-lg text-lg"
             >
               <Calculator size={14} className="mr-2" /> Check Eligibility
             </a>
-            <Link to="/booking" className="inline-flex items-center gap-2 px-6 py-3 rounded-full border-2 border-white/40 text-white hover:bg-white/10 transition-all font-medium text-sm">
+            <Link to="/booking" className="inline-flex items-center gap-2 px-6 py-3 rounded-full border-2 border-white/40 text-white hover:bg-white/10 transition-all font-medium text-lg">
               Book Appointment <ArrowRight size={14} />
             </Link>
           </div>

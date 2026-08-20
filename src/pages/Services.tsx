@@ -2,14 +2,17 @@ import { motion } from 'framer-motion';
 import { ArrowRight, CheckCircle } from 'lucide-react';
 import { useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import banner from '../assets/banner.jpeg';
 import cd1 from '../assets/cd1.png';
 import ec1 from '../assets/ec1.png';
 import gbt1 from '../assets/gbt1.png';
 import is1 from '../assets/is1.png';
 import pc1 from '../assets/pc1.png';
 import tw1 from '../assets/tw1.png';
+
 import { FloatingBubble, FloatingDenture, FloatingMirror, FloatingMolar, FloatingSparkle, FloatingTooth, FloatingToothbrush } from '../components/FloatingElements';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
+
 export const servicesList = [
   {
     id: 'gbt',
@@ -113,8 +116,22 @@ function ServicesList() {
   const { ref, isVisible } = useScrollAnimation(0.05);
 
   return (
-    <section ref={ref} className="section-padding bg-gradient-to-b from-brand-teal/3 to-brand-green/3">
-      <div className="max-w-6xl mx-auto space-y-6">
+    <section
+      ref={ref}
+      className="section-padding relative"
+      style={{
+        backgroundImage: `url(${banner})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center 30%",
+        backgroundRepeat: "no-repeat",
+        backgroundAttachment: "fixed",
+      }}
+    >
+      {/* TRANSLUCENT WHITE OVERLAY TO SOFTEN THE BANNER */}
+      <div className="absolute inset-0 bg-white/70" />
+
+      {/* CONTENT */}
+      <div className="relative max-w-6xl mx-auto space-y-6">
         {servicesList.map((service, i) => (
           <motion.div
             key={service.id}
@@ -126,18 +143,19 @@ function ServicesList() {
           >
             <div className="grid md:grid-cols-5 gap-4 md:gap-6">
               <div className={`md:col-span-2 relative h-52 md:h-auto min-h-[13rem] rounded-xl overflow-hidden ${i % 2 === 1 ? 'md:order-2' : ''}`}>
-                {/* Replace with: /assets/images/services/service-{i}.jpg */}
                 <img src={service.image} alt={service.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                 {service.badge && (
                   <span className="absolute top-3 left-3 text-[10px] font-bold text-white bg-brand-teal/90 backdrop-blur-sm px-2.5 py-1 rounded-full">{service.badge}</span>
                 )}
               </div>
+
               <div className={`md:col-span-3 p-4 md:py-6 md:pr-5 ${i % 2 === 1 ? 'md:order-1 md:pl-5' : ''}`}>
                 <h3 className="font-heading font-bold text-lg text-neutral-900">{service.title}</h3>
-                <p className="mt-1.5 text-neutral-600 text-sm">{service.desc}</p>
+                <p className="mt-1.5 text-neutral-600 text-lg">{service.desc}</p>
+
                 <ul className="mt-4 grid sm:grid-cols-2 gap-2.5">
                   {service.points.map((point) => (
-                    <li key={point} className="flex items-start gap-2.5 text-sm text-neutral-700">
+                    <li key={point} className="flex items-start gap-2.5 text-lg text-neutral-700">
                       <span className="w-5 h-5 rounded-full bg-brand-green/15 flex items-center justify-center shrink-0 mt-0.5">
                         <CheckCircle size={12} className="text-brand-green" />
                       </span>
@@ -145,8 +163,9 @@ function ServicesList() {
                     </li>
                   ))}
                 </ul>
+
                 {service.link && (
-                  <Link to={service.link} className="inline-flex items-center gap-1.5 mt-4 text-sm font-semibold text-brand-teal hover:text-brand-teal-dark transition-colors">
+                  <Link to={service.link} className="inline-flex items-center gap-1.5 mt-4 text-lg font-semibold text-brand-teal hover:text-brand-teal-dark transition-colors">
                     Learn more <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
                   </Link>
                 )}
@@ -171,10 +190,10 @@ function CTASection() {
             </svg>
           </div>
           <h2 className="font-heading text-2xl md:text-3xl font-bold">Not Sure What You Need?</h2>
-          <p className="mt-2 text-white/80 text-sm">Book a comprehensive exam and let our team create a plan for your unique needs.</p>
+          <p className="mt-2 text-white/80 text-lg">Book a comprehensive exam and let our team create a plan for your unique needs.</p>
           <div className="mt-6 flex flex-wrap justify-center gap-3">
-            <Link to="/booking" className="btn-accent text-sm">Book an Exam <ArrowRight size={14} className="ml-2" /></Link>
-            <a href="tel:+19059998144" className="inline-flex items-center gap-2 px-6 py-3 rounded-full border-2 border-white/30 text-white hover:bg-white/10 transition-all font-medium text-sm">Call 905-999-8144</a>
+            <Link to="/booking" className="btn-accent text-lg">Book an Exam <ArrowRight size={14} className="ml-2" /></Link>
+            <a href="tel:+19059998144" className="inline-flex items-center gap-2 px-6 py-3 rounded-full border-2 border-white/30 text-white hover:bg-white/10 transition-all font-medium text-lg">Call 905-999-8144</a>
           </div>
         </div>
       </div>

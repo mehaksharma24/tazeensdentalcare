@@ -1,8 +1,8 @@
 import { motion } from 'framer-motion';
+import { ArrowRight, CheckCircle, Clock, MapPin, Phone } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { MapPin, Phone, Clock, ArrowRight, CheckCircle } from 'lucide-react';
+import { FloatingBubble, FloatingDenture, FloatingMirror, FloatingMolar, FloatingSparkle, FloatingTooth, FloatingToothbrush } from '../components/FloatingElements';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
-import { FloatingTooth, FloatingToothbrush, FloatingMirror, FloatingMolar, FloatingDenture, FloatingBubble, FloatingSparkle } from '../components/FloatingElements';
 
 export function Contact() {
   return (
@@ -61,8 +61,8 @@ function ContactInfo() {
               <div className={`w-11 h-11 rounded-xl ${item.color} flex items-center justify-center mx-auto mb-3`}>
                 <item.icon size={19} className={item.text} />
               </div>
-              <h3 className="font-heading font-semibold text-sm text-neutral-800">{item.title}</h3>
-              <p className="mt-1 text-xs text-neutral-600 whitespace-pre-line">
+              <h3 className="font-heading font-semibold text-lg text-neutral-800">{item.title}</h3>
+              <p className="mt-1 text-lg text-neutral-600 whitespace-pre-line">
                 {item.link ? <a href={item.link} className="hover:text-brand-teal transition-colors">{item.line}</a> : item.line}
               </p>
             </motion.div>
@@ -74,7 +74,7 @@ function ContactInfo() {
             <h3 className="font-heading font-semibold text-neutral-900 mb-3">Why Visit Us?</h3>
             <div className="grid sm:grid-cols-2 gap-2">
               {['Convenient Milton location', 'Plenty of free parking', 'Calm and welcoming environment', 'Easy appointment scheduling'].map((item) => (
-                <div key={item} className="flex items-center gap-2.5 text-sm text-neutral-700">
+                <div key={item} className="flex items-center gap-2.5 text-lg text-neutral-700">
                   <span className="w-5 h-5 rounded-full bg-brand-green/15 flex items-center justify-center shrink-0">
                     <CheckCircle size={12} className="text-brand-green" />
                   </span>
@@ -86,7 +86,7 @@ function ContactInfo() {
         </motion.div>
 
         <div className="mt-8 text-center">
-          <Link to="/booking" className="btn-primary inline-flex text-sm">Book Appointment <ArrowRight size={14} className="ml-2" /></Link>
+          <Link to="/booking" className="btn-primary inline-flex text-lg">Book Appointment <ArrowRight size={14} className="ml-2" /></Link>
         </div>
       </div>
     </section>
