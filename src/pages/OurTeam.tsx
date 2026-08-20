@@ -14,15 +14,15 @@ import { ImageSlideshow } from '../components/ImageSlideshow';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 const galleryImages = [
-  { src: '/src/assets/tm1.png', alt: 'Team Member 1' },
-  { src: '/src/assets/tm2.png', alt: 'Team Member 2' },
-  { src: '/src/assets/tm3.png', alt: 'Team Member 3' },
-  { src: '/src/assets/tm4.png', alt: 'Team Member 4' },
-  { src: '/src/assets/tm5.png', alt: 'Team Member 5' },
-  { src: '/src/assets/tm6.png', alt: 'Team Member 6' },
-  { src: '/src/assets/tm7.png', alt: 'Team Member 7' },
-  { src: '/src/assets/tm8.png', alt: 'Team Member 8' },
-  { src: '/src/assets/tm9.png', alt: 'Team Member 9' },
+  { src: '/assets/tm1.png', alt: 'Team Member 1' },
+  { src: '/assets/tm2.png', alt: 'Team Member 2' },
+  { src: '/assets/tm3.png', alt: 'Team Member 3' },
+  { src: '/assets/tm4.png', alt: 'Team Member 4' },
+  { src: '/assets/tm5.png', alt: 'Team Member 5' },
+  { src: '/assets/tm6.png', alt: 'Team Member 6' },
+  { src: '/assets/tm7.png', alt: 'Team Member 7' },
+  { src: '/assets/tm8.png', alt: 'Team Member 8' },
+  { src: '/assets/tm9.png', alt: 'Team Member 9' },
 ];
 
 export function OurTeam() {
@@ -105,7 +105,7 @@ function HeroBanner() {
 function TazeenSection() {
   const { ref, isVisible } = useScrollAnimation();
 
-  const tazeenImages = ['/src/assets/tazeen1.jpg', '/src/assets/pc2.png', '/src/assets/cd1.png'];
+  const tazeenImages = ['/assets/tazeen1.jpg', '/assets/pc2.png', '/assets/cd1.png'];
 
   return (
     <section ref={ref} className="section-padding bg-gradient-to-b from-white to-brand-teal/5">
@@ -177,9 +177,9 @@ function DrNaziaSection() {
   const { ref, isVisible } = useScrollAnimation();
 
   const naziaImages = [
-    '/src/assets/nazia1.png',
-    '/src/assets/pc1.png',
-    '/src/assets/nazia2.png',
+    '/assets/nazia1.png',
+    '/assets/pc1.png',
+    '/assets/nazia2.png',
   ];
 
   return (
