@@ -25,12 +25,14 @@ const links: NavLink[] = [
     dropdown: [
       { to: '/services#gbt', label: 'Guided Biofilm Therapy (GBT)' },
       { to: '/services#periodontal-care', label: 'Periodontal Care' },
+      { to: '/services#root-canal', label: 'Root Canal Treatment' },
       { to: '/services#teeth-whitening', label: 'Teeth Whitening' },
       { to: '/services#childrens-dental', label: "Children's Dental Care" },
       { to: '/services#restorative', label: 'Restorative Dentistry' },
       { to: '/services#invisalign', label: 'Invisalign / Clear Aligners' },
       { to: '/services#emergency', label: 'Emergency Dental Care' },
     ],
+
   },
   { to: '/gbt', label: 'GBT' },
   { to: '/cdcp', label: 'CDCP' },

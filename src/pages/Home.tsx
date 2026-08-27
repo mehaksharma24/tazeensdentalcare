@@ -210,7 +210,7 @@ function ServicesOverview() {
 
   const services = [
     { title: 'Guided Biofilm Therapy', desc: 'Advanced airflow cleaning- painless and fast', image: gbt1, link: '/gbt', badge: 'Signature Service' },
-    { title: 'Preventive Care', desc: 'Exams, cleanings, and early detection', image:pc1, link: '/services' },
+    { title: 'Root Canal Treatment', desc: 'Treatment saves an infected or damaged tooth', image:pc1, link: '/services' },
     { title: 'Periodontal Care', desc: 'Deep cleaning and gum health management', image: pc2, link:'/services' },
     { title: 'Teeth Whitening', desc: 'Professional whitening for a brighter smile', image: tw1 , link: '/services' },
     { title: "Children's Dental", desc: 'Gentle, kid-friendly preventive care', image: cd1, link: '/services' },

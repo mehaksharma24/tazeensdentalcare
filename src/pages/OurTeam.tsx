@@ -33,6 +33,8 @@ export function OurTeam() {
       <HeroBanner />
       <TazeenSection />
       <DrNaziaSection />
+      <SampleDoctorOneSection />
+      <SampleDoctorTwoSection />
       <GallerySection onOpen={setLightbox} />
 
       <AnimatePresence>
@@ -235,6 +237,67 @@ function DrNaziaSection() {
         >
           <div className="rounded-[2rem] overflow-hidden shadow-xl border-[6px] border-white h-[600px]">
             <ImageSlideshow images={naziaImages} alt="Dr. Nazia" interval={4500} className="h-full" />
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
+
+function SampleDoctorOneSection() {
+  const { ref, isVisible } = useScrollAnimation();
+  const doctorImages = ['/assets/doctor-sample-1.png'];
+
+  return (
+    <section ref={ref} className="section-padding bg-gradient-to-b from-white to-brand-teal/5">
+      <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-10 items-center">
+        <motion.div initial={{ opacity: 0, x: -30 }} animate={isVisible ? { opacity: 1, x: 0 } : {}} transition={{ duration: 0.6 }} className="relative">
+          <div className="rounded-[2rem] overflow-hidden shadow-xl border-[6px] border-white h-[600px] bg-neutral-100">
+            <ImageSlideshow images={doctorImages} alt="Sample Doctor One" interval={4500} className="h-full" />
+          </div>
+        </motion.div>
+        <motion.div initial={{ opacity: 0, x: 30 }} animate={isVisible ? { opacity: 1, x: 0 } : {}} transition={{ duration: 0.6, delay: 0.2 }}>
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-teal/10 text-brand-teal text-xs font-medium mb-3"><GraduationCap size={12} /> General Dentist</div>
+          <h2 className="font-heading text-3xl font-bold text-neutral-900">Dr. Sample One</h2>
+          <p className="text-brand-teal font-medium mt-1">DDS, General Dentist</p>
+          <div className="mt-4 space-y-3 text-neutral-600 text-sm leading-relaxed">
+            <p>Sample biography goes here. Replace this text with the doctor’s education, experience, areas of interest, and approach to patient care.</p>
+            <p>You can also add languages spoken, professional interests, and a short personal introduction here when the final content is ready.</p>
+          </div>
+          <div className="mt-5 flex flex-wrap gap-2">
+            <span className="px-3 py-1.5 rounded-lg bg-brand-green/10 text-brand-green-dark text-xs font-medium flex items-center gap-1.5"><Heart size={12} /> Patient Care</span>
+            <span className="px-3 py-1.5 rounded-lg bg-brand-teal/10 text-brand-teal text-xs font-medium flex items-center gap-1.5"><Award size={12} /> Sample Specialty</span>
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
+function SampleDoctorTwoSection() {
+  const { ref, isVisible } = useScrollAnimation();
+  const doctorImages = ['/assets/doctor-sample-2.png'];
+
+  return (
+    <section ref={ref} className="section-padding bg-gradient-to-br from-brand-green/5 via-white to-brand-teal/5">
+      <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-10 items-center">
+        <motion.div initial={{ opacity: 0, x: -30 }} animate={isVisible ? { opacity: 1, x: 0 } : {}} transition={{ duration: 0.6 }} className="order-2 lg:order-1">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-green/10 text-brand-green-dark text-xs font-medium mb-3"><GraduationCap size={12} /> General Dentist</div>
+          <h2 className="font-heading text-3xl font-bold text-neutral-900">Dr. Sample Two</h2>
+          <p className="text-brand-green font-medium mt-1">DDS, General Dentist</p>
+          <div className="mt-4 space-y-3 text-neutral-600 text-sm leading-relaxed">
+            <p>Sample biography goes here. Replace this section with the second doctor’s background, qualifications, clinical experience, and treatment philosophy.</p>
+            <p>This placeholder keeps the same overall layout as the existing team sections so you can easily swap in the real content later.</p>
+          </div>
+          <div className="mt-5 flex flex-wrap gap-2">
+            <span className="px-3 py-1.5 rounded-lg bg-brand-green/10 text-brand-green-dark text-xs font-medium flex items-center gap-1.5"><Heart size={12} /> Gentle Approach</span>
+            <span className="px-3 py-1.5 rounded-lg bg-brand-teal/10 text-brand-teal text-xs font-medium flex items-center gap-1.5"><Award size={12} /> Sample Specialty</span>
+          </div>
+        </motion.div>
+        <motion.div initial={{ opacity: 0, x: 30 }} animate={isVisible ? { opacity: 1, x: 0 } : {}} transition={{ duration: 0.6, delay: 0.2 }} className="order-1 lg:order-2 relative">
+          <div className="rounded-[2rem] overflow-hidden shadow-xl border-[6px] border-white h-[600px] bg-neutral-100">
+            <ImageSlideshow images={doctorImages} alt="Sample Doctor Two" interval={4500} className="h-full" />
           </div>
         </motion.div>
       </div>
