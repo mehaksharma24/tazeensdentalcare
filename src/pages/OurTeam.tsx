@@ -259,15 +259,17 @@ function SampleDoctorOneSection() {
         </motion.div>
         <motion.div initial={{ opacity: 0, x: 30 }} animate={isVisible ? { opacity: 1, x: 0 } : {}} transition={{ duration: 0.6, delay: 0.2 }}>
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-teal/10 text-brand-teal text-xs font-medium mb-3"><GraduationCap size={12} /> General Dentist</div>
-          <h2 className="font-heading text-3xl font-bold text-neutral-900">Dr. Sample One</h2>
+          <h2 className="font-heading text-3xl font-bold text-neutral-900">Dr. Marryam Yousaf</h2>
           <p className="text-brand-teal font-medium mt-1">DDS, General Dentist</p>
           <div className="mt-4 space-y-3 text-neutral-600 text-sm leading-relaxed">
-            <p>Sample biography goes here. Replace this text with the doctor’s education, experience, areas of interest, and approach to patient care.</p>
-            <p>You can also add languages spoken, professional interests, and a short personal introduction here when the final content is ready.</p>
+            <p>Dr. Maryyam Yousaf is a general dentist who loves helping patients feel comfortable and at ease in the dental chair. She enjoys all aspects 
+              of dentistry, with a special interest in oral surgery, root canal treatment, and caring for anxious patients.</p>
+            <p>When she’s not in the dental office, you’ll likely find her spending time with her family, 
+              painting, getting lost in a good book, experimenting with new recipes in the kitchen, or creating dental content for social media.</p>
           </div>
           <div className="mt-5 flex flex-wrap gap-2">
             <span className="px-3 py-1.5 rounded-lg bg-brand-green/10 text-brand-green-dark text-xs font-medium flex items-center gap-1.5"><Heart size={12} /> Patient Care</span>
-            <span className="px-3 py-1.5 rounded-lg bg-brand-teal/10 text-brand-teal text-xs font-medium flex items-center gap-1.5"><Award size={12} /> Sample Specialty</span>
+            <span className="px-3 py-1.5 rounded-lg bg-brand-teal/10 text-brand-teal text-xs font-medium flex items-center gap-1.5"><Award size={12} />Dental Care</span>
           </div>
         </motion.div>
       </div>
@@ -284,15 +286,19 @@ function SampleDoctorTwoSection() {
       <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-10 items-center">
         <motion.div initial={{ opacity: 0, x: -30 }} animate={isVisible ? { opacity: 1, x: 0 } : {}} transition={{ duration: 0.6 }} className="order-2 lg:order-1">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-green/10 text-brand-green-dark text-xs font-medium mb-3"><GraduationCap size={12} /> General Dentist</div>
-          <h2 className="font-heading text-3xl font-bold text-neutral-900">Dr. Sample Two</h2>
+          <h2 className="font-heading text-3xl font-bold text-neutral-900">Dr. Amit Soni</h2>
           <p className="text-brand-green font-medium mt-1">DDS, General Dentist</p>
           <div className="mt-4 space-y-3 text-neutral-600 text-sm leading-relaxed">
-            <p>Sample biography goes here. Replace this section with the second doctor’s background, qualifications, clinical experience, and treatment philosophy.</p>
-            <p>This placeholder keeps the same overall layout as the existing team sections so you can easily swap in the real content later.</p>
+            <p>Dr. Amit is a caring and experienced dentist who is passionate about making his patients feel comfortable and well taken care of. He began his dental journey in India, completing his BDS from Government Dental College, Jaipur, in 2009. He later moved to Canada and completed his DDS from the University of Alberta in 2021.
+
+Dr. Amit enjoys treating patients of all ages and takes pride in providing everything from family dentistry to more complex dental treatments, including extractions, root canals, and dental implants. He believes in taking the time to understand his patients, explain their treatment options, and make their dental experience as comfortable as possible.</p>
+            <p>Outside of the clinic, Dr. Amit loves exploring nature, playing badminton, and watching National Geographic. He is always curious to learn something new and enjoys meeting and connecting with people from all walks of life.
+
+For Dr. Amit, dentistry is more than just treating teeth—it’s about helping patients feel confident, comfortable, and happy with their smiles.</p>
           </div>
           <div className="mt-5 flex flex-wrap gap-2">
             <span className="px-3 py-1.5 rounded-lg bg-brand-green/10 text-brand-green-dark text-xs font-medium flex items-center gap-1.5"><Heart size={12} /> Gentle Approach</span>
-            <span className="px-3 py-1.5 rounded-lg bg-brand-teal/10 text-brand-teal text-xs font-medium flex items-center gap-1.5"><Award size={12} /> Sample Specialty</span>
+            <span className="px-3 py-1.5 rounded-lg bg-brand-teal/10 text-brand-teal text-xs font-medium flex items-center gap-1.5"><Award size={12} />Always smiling</span>
           </div>
         </motion.div>
         <motion.div initial={{ opacity: 0, x: 30 }} animate={isVisible ? { opacity: 1, x: 0 } : {}} transition={{ duration: 0.6, delay: 0.2 }} className="order-1 lg:order-2 relative">

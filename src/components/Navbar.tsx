@@ -23,16 +23,39 @@ const links: NavLink[] = [
   {
     label: 'Services',
     dropdown: [
-      { to: '/services#gbt', label: 'Guided Biofilm Therapy (GBT)' },
-      { to: '/services#periodontal-care', label: 'Periodontal Care' },
-      { to: '/services#root-canal', label: 'Root Canal Treatment' },
-      { to: '/services#teeth-whitening', label: 'Teeth Whitening' },
-      { to: '/services#childrens-dental', label: "Children's Dental Care" },
-      { to: '/services#restorative', label: 'Restorative Dentistry' },
-      { to: '/services#invisalign', label: 'Invisalign / Clear Aligners' },
-      { to: '/services#emergency', label: 'Emergency Dental Care' },
+      {
+        to: '/services#gbt',
+        label: 'Guided Biofilm Therapy (GBT)',
+      },
+      {
+        to: '/services#periodontal-care',
+        label: 'Periodontal Care',
+      },
+      {
+        to: '/services#root-canal',
+        label: 'Root Canal Treatment',
+      },
+      {
+        to: '/services#teeth-whitening',
+        label: 'Teeth Whitening',
+      },
+      {
+        to: '/services#childrens-dental',
+        label: "Children's Dental Care",
+      },
+      {
+        to: '/services#restorative',
+        label: 'Restorative Dentistry',
+      },
+      {
+        to: '/services#invisalign',
+        label: 'Invisalign / Clear Aligners',
+      },
+      {
+        to: '/services#emergency',
+        label: 'Emergency Dental Care',
+      },
     ],
-
   },
   { to: '/gbt', label: 'GBT' },
   { to: '/cdcp', label: 'CDCP' },
@@ -44,13 +67,20 @@ export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+
   const dropdownRef = useRef<HTMLDivElement>(null);
   const location = useLocation();
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20);
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, []);
 
   useEffect(() => {
@@ -59,53 +89,74 @@ export function Navbar() {
   }, [location]);
 
   useEffect(() => {
-    const handleClickOutside = (e: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
         setOpenDropdown(null);
       }
     };
+
     document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
   }, []);
 
   const isActive = (link: NavLink) => {
-    if (link.to) return location.pathname === link.to;
-    if (link.dropdown) return link.dropdown.some((sub) => location.pathname === sub.to.split('#')[0]);
+    if (link.to) {
+      return location.pathname === link.to;
+    }
+
+    if (link.dropdown) {
+      return link.dropdown.some(
+        (sub) => location.pathname === sub.to.split('#')[0],
+      );
+    }
+
     return false;
   };
 
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
-        scrolled ? 'bg-white/95 backdrop-blur-md shadow-md' : 'bg-transparent'
+        scrolled
+          ? 'bg-white/95 backdrop-blur-md shadow-md'
+          : 'bg-white/95 backdrop-blur-md'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 md:h-20">
-          <Link to="/" className="flex items-center gap-2">
-
-            {/* --- REPLACED LOGO ONLY --- */}
-            <div className="w-14 h-14 flex items-center justify-center">
+        <div className="flex items-center justify-between h-20 md:h-24">
+          <Link to="/" className="flex items-center gap-3 shrink-0">
+            <div className="w-16 h-16 md:w-20 md:h-20 flex items-center justify-center">
               <img
                 src={logo}
                 alt="Tazeen's Dental Care Logo"
                 className="w-full h-full object-contain"
               />
             </div>
-            {/* -------------------------------- */}
 
-            <span className="font-heading font-bold text-lg">
+            <span className="font-heading font-bold text-lg xl:text-xl whitespace-nowrap">
               <span className="text-brand-teal">Tazeen's</span>{' '}
               <span className="text-neutral-700">Dental Care</span>
             </span>
           </Link>
 
-          <div ref={dropdownRef} className="hidden lg:flex items-center gap-1">
+          <div
+            ref={dropdownRef}
+            className="hidden lg:flex items-center gap-1"
+          >
             {links.map((link) =>
               link.dropdown ? (
                 <div key={link.label} className="relative">
                   <button
-                    onClick={() => setOpenDropdown(openDropdown === link.label ? null : link.label)}
+                    onClick={() =>
+                      setOpenDropdown(
+                        openDropdown === link.label ? null : link.label,
+                      )
+                    }
                     className={`px-3 py-2 rounded-lg text-xl font-medium transition-colors flex items-center gap-1 ${
                       isActive(link)
                         ? 'text-brand-teal bg-brand-teal/5'
@@ -113,8 +164,15 @@ export function Navbar() {
                     }`}
                   >
                     {link.label}
-                    <ChevronDown size={14} className={`transition-transform ${openDropdown === link.label ? 'rotate-180' : ''}`} />
+
+                    <ChevronDown
+                      size={14}
+                      className={`transition-transform ${
+                        openDropdown === link.label ? 'rotate-180' : ''
+                      }`}
+                    />
                   </button>
+
                   <AnimatePresence>
                     {openDropdown === link.label && (
                       <motion.div
@@ -153,26 +211,33 @@ export function Navbar() {
                 >
                   {link.label}
                 </Link>
-              )
+              ),
             )}
           </div>
 
-          <div className="hidden lg:flex items-center gap-3">
+          <div className="hidden lg:flex items-center gap-3 shrink-0">
             <a
               href="tel:+19059998144"
-              className="flex items-center gap-2 text-sm font-medium text-neutral-600 hover:text-brand-teal transition-colors"
+              className="flex items-center gap-2 text-sm font-medium text-neutral-600 hover:text-brand-teal transition-colors whitespace-nowrap"
             >
               <Phone size={16} />
               905-999-8144
             </a>
-            <Link to="/booking" className="btn-primary text-sm">
+
+            <Link
+              to="/booking"
+              className="btn-primary text-sm whitespace-nowrap"
+            >
               Book Now
             </Link>
           </div>
 
           <button
+            type="button"
             onClick={() => setIsOpen(!isOpen)}
             className="lg:hidden p-2 rounded-lg text-neutral-600 hover:bg-neutral-100"
+            aria-label={isOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={isOpen}
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -191,7 +256,10 @@ export function Navbar() {
               {links.map((link) =>
                 link.dropdown ? (
                   <div key={link.label}>
-                    <p className="px-4 py-2 text-xs font-bold text-neutral-400 uppercase tracking-wide">{link.label}</p>
+                    <p className="px-4 py-2 text-xs font-bold text-neutral-400 uppercase tracking-wide">
+                      {link.label}
+                    </p>
+
                     {link.dropdown.map((sub) => (
                       <Link
                         key={sub.to}
@@ -218,10 +286,14 @@ export function Navbar() {
                   >
                     {link.label}
                   </Link>
-                )
+                ),
               )}
+
               <div className="pt-3 border-t border-neutral-100">
-                <Link to="/booking" className="btn-primary w-full text-sm text-center">
+                <Link
+                  to="/booking"
+                  className="btn-primary w-full text-sm text-center"
+                >
                   Book Appointment
                 </Link>
               </div>

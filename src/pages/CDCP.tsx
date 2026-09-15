@@ -2,6 +2,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { ArrowRight, Calculator, CheckCircle, ChevronDown, FileText, Heart, Phone, Shield, Stethoscope } from 'lucide-react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import gb1 from '../assets/gb1.png';
 import { FloatingMolar, FloatingSparkle, FloatingTooth } from '../components/FloatingElements';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
@@ -154,7 +155,7 @@ function IntroSection() {
         </motion.div>
 
         <motion.div initial={{ opacity: 0, x: 30 }} animate={isVisible ? { opacity: 1, x: 0 } : {}} transition={{ duration: 0.6, delay: 0.2 }} className="rounded-2xl overflow-hidden shadow-xl border-4 border-red-50">
-          <img src="https://images.pexels.com/photos/3952003/pexels-photo-3952003.jpeg?auto=compress&cs=tinysrgb&w=700" alt="CDCP dental care for Canadians" className="w-full h-[300px] object-cover" />
+          <img src={gb1} alt="CDCP dental care for Canadians" className="w-full h-[300px] object-cover" />
         </motion.div>
       </div>
     </section>

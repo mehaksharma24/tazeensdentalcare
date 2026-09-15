@@ -4,6 +4,8 @@ import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import banner from "../assets/banner.jpeg";
 import cd1 from '../assets/cd1.png';
+import doctorsample1 from '../assets/doctor-sample-1.png';
+import doctorsample2 from '../assets/doctor-sample-2.png';
 import ec1 from '../assets/ec1.png';
 import gbt1 from '../assets/gbt1.png';
 import home2 from '../assets/home2.jpeg';
@@ -12,7 +14,6 @@ import pc1 from '../assets/pc1.png';
 import pc2 from '../assets/pc2.png';
 import tazeen1 from '../assets/tazeen1.jpg';
 import tw1 from '../assets/tw1.png';
-
 
 
   import { FloatingSparkle, FloatingTooth, FloatingToothbrush, WaveBanner } from '../components/FloatingElements';
@@ -283,6 +284,20 @@ function MeetTeamSection() {
       role: 'DDS, General Dentist',
       desc: 'Conservative dentistry — preserving natural tooth structure while delivering lasting results. Warm and patient-centered.',
       image: nazia1,
+      badge: 'DDS',
+    },
+    {
+      name: 'Dr. Marryam Yousuf',
+      role: 'DDS, General Dentist',
+      desc: 'Where compassionate care and clinical excellence come together to create confident smiles.',
+      image: doctorsample1,
+      badge: 'DDS',
+    },
+    {
+      name: 'Dr. Amit Soni',
+      role: 'DDS, General Dentist',
+      desc: 'Dedicated to delivering exceptional dentistry with compassion, clarity, and comfort.”',
+      image: doctorsample2,
       badge: 'DDS',
     },
   ];
