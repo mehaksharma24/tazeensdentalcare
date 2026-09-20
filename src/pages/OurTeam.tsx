@@ -259,10 +259,10 @@ function SampleDoctorOneSection() {
         </motion.div>
         <motion.div initial={{ opacity: 0, x: 30 }} animate={isVisible ? { opacity: 1, x: 0 } : {}} transition={{ duration: 0.6, delay: 0.2 }}>
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-teal/10 text-brand-teal text-xs font-medium mb-3"><GraduationCap size={12} /> General Dentist</div>
-          <h2 className="font-heading text-3xl font-bold text-neutral-900">Dr. Marryam Yousaf</h2>
+          <h2 className="font-heading text-3xl font-bold text-neutral-900">Dr. Maryam Yousaf</h2>
           <p className="text-brand-teal font-medium mt-1">DDS, General Dentist</p>
           <div className="mt-4 space-y-3 text-neutral-600 text-sm leading-relaxed">
-            <p>Dr. Maryyam Yousaf is a general dentist who loves helping patients feel comfortable and at ease in the dental chair. She enjoys all aspects 
+            <p>Dr. Maryam Yousaf is a general dentist who loves helping patients feel comfortable and at ease in the dental chair. She enjoys all aspects 
               of dentistry, with a special interest in oral surgery, root canal treatment, and caring for anxious patients.</p>
             <p>When she’s not in the dental office, you’ll likely find her spending time with her family, 
               painting, getting lost in a good book, experimenting with new recipes in the kitchen, or creating dental content for social media.</p>

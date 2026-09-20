@@ -287,7 +287,7 @@ function MeetTeamSection() {
       badge: 'DDS',
     },
     {
-      name: 'Dr. Marryam Yousuf',
+      name: 'Dr. Maryam Yousuf',
       role: 'DDS, General Dentist',
       desc: 'Where compassionate care and clinical excellence come together to create confident smiles.',
       image: doctorsample1,
