@@ -82,7 +82,7 @@ function HeroSection() {
               Book Appointment <ArrowRight size={18} className="ml-2" />
             </Link>
             <a href="tel:+19059998144" className="btn-secondary text-base px-8 py-4">
-              Call / Text 905-999-8144
+              Call / Text 905-399-8144
             </a>
           </div>
           <div className="mt-8 flex items-center gap-3">
@@ -491,7 +491,7 @@ function CTASection() {
             </div>
             <div className="flex flex-wrap justify-center md:justify-end gap-3 shrink-0">
               <Link to="/booking" className="btn-accent text-sm md:text-base px-7 py-3.5">Book Appointment <ArrowRight size={16} className="ml-2" /></Link>
-              <a href="tel:+19059998144" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full border-2 border-white/30 text-white hover:bg-white/10 transition-all font-medium text-sm md:text-base">Call 905-999-8144</a>
+              <a href="tel:+19059998144" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full border-2 border-white/30 text-white hover:bg-white/10 transition-all font-medium text-sm md:text-base">Call 905-399-8144</a>
             </div>
           </div>
         </motion.div>

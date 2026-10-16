@@ -79,8 +79,8 @@ function PromoCard() {
                 <Link to="/booking" className="btn-primary text-lg">
                   Book Now <ArrowRight size={14} className="ml-2" />
                 </Link>
-                <a href="tel:+19059998144" className="btn-secondary text-lg">
-                  Call 905-999-8144
+                <a href="tel:+19053998144" className="btn-secondary text-lg">
+                  Call 905-399-8144
                 </a>
               </div>
             </div>

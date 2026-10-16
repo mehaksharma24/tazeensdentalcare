@@ -53,7 +53,7 @@ function ContactInfo() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-10">
           {[
             { icon: MapPin, title: 'Address', line: '400 Bronte Street South, Unit 108\nMilton, Ontario', color: 'bg-brand-green/10', text: 'text-brand-green' },
-            { icon: Phone, title: 'Phone / Text', line: '905-999-8144', link: 'tel:+19059998144', color: 'bg-brand-teal/10', text: 'text-brand-teal' },
+            { icon: Phone, title: 'Phone / Text', line: '905-399-8144', link: 'tel:+19059998144', color: 'bg-brand-teal/10', text: 'text-brand-teal' },
             { icon: Clock, title: 'Mon-Thu', line: '10:00 AM - 7:00 PM', color: 'bg-brand-gold/10', text: 'text-brand-gold-dark' },
             { icon: Clock, title: 'Fri-Sat', line: '10:00 AM - 4:00 PM', color: 'bg-brand-teal/10', text: 'text-brand-teal' },
           ].map((item, i) => (
