@@ -400,10 +400,10 @@ function CTASection() {
             </Link>
 
             <a
-              href="tel:+19059998144"
+              href="tel:+19053998144"
               className="inline-flex items-center gap-2 px-6 py-3 rounded-full border-2 border-white/30 text-white hover:bg-white/10 transition-all font-medium text-lg"
             >
-              Call 905-999-8144
+              Call 905-399-8144
             </a>
           </div>
         </div>

@@ -737,7 +737,7 @@ function ContactInfo() {
           <p className="text-sm text-neutral-600">108-400 Bronte Street South</p>
           <p className="text-sm text-neutral-600">Milton, Ontario, Canada</p>
           <div className="mt-5 flex flex-wrap gap-3">
-            <a href="tel:+19050000000" className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-teal/10 text-brand-teal-dark text-sm font-medium hover:bg-brand-teal/20 transition-colors">
+            <a href="tel:+19053998144" className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-teal/10 text-brand-teal-dark text-sm font-medium hover:bg-brand-teal/20 transition-colors">
               <Phone size={14} /> Call us
             </a>
             <a href="mailto:hello@tazeendental.ca" className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-green/10 text-brand-green text-sm font-medium hover:bg-brand-green/20 transition-colors">
@@ -787,7 +787,7 @@ function FinalCta() {
             Book a visit and experience dentistry designed around comfort, clarity, and care for the whole family.
           </p>
           <div className="mt-7 flex flex-wrap items-center justify-center gap-3">
-            <a href="tel:+19050000000" className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-brand-teal text-white font-semibold text-sm shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all">
+            <a href="tel:+19053998144" className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-brand-teal text-white font-semibold text-sm shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all">
               <Phone size={16} /> Book an appointment
             </a>
             <a href="#booking" className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/10 text-white font-semibold text-sm border border-white/20 hover:bg-white/20 transition-colors">

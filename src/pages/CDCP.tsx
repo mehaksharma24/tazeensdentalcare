@@ -414,7 +414,7 @@ function EligibilityCalculator() {
                       <p className="font-heading font-bold text-neutral-800">You may not qualify for CDCP, but we can still help.</p>
                     </div>
                     <p className="text-lg text-neutral-600 mb-4">Don't worry — our team can discuss other options to make dental care affordable for you.</p>
-                    <a href="tel:+19059998144" className="btn-secondary text-lg inline-flex">
+                    <a href="tel:+19053998144" className="btn-secondary text-lg inline-flex">
                       <Phone size={14} className="mr-2" /> Call Us to Discuss Options
                     </a>
                   </div>

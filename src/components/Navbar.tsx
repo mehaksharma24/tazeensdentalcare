@@ -217,11 +217,11 @@ export function Navbar() {
 
           <div className="hidden lg:flex items-center gap-3 shrink-0">
             <a
-              href="tel:+19059998144"
+              href="tel:+19053998144"
               className="flex items-center gap-2 text-sm font-medium text-neutral-600 hover:text-brand-teal transition-colors whitespace-nowrap"
             >
               <Phone size={16} />
-              905-999-8144
+              905-399-8144
             </a>
 
             <Link
